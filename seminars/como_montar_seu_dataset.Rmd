@@ -1,0 +1,36 @@
+---
+title: "Como montar seu banco de dados?"
+date: 16 de agosto de 2016
+header-includes:
+   - \setbeamertemplate{navigation symbols}{}
+   - \author[Eduardo Junior, Henrique Laureano]{Eduardo Elias Ribeiro Junior
+                                                \and Henrique Aparecido Laureano}
+   - \institute[]{Faculdade de Medicina \\ Universidade Federal de Minas Gerais \\ UFMG}
+output: 
+  beamer_presentation: 
+    colortheme: dove
+    fonttheme: serif
+    highlight: kate
+    incremental: yes
+    keep_tex: yes
+    theme: Madrid
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+
+tema <- knit_theme$get("acid")
+
+knit_theme$set(tema)
+
+opts_chunk$set(size='small'
+               , cache=TRUE, cache.path='cache/'
+               , comment=NA, warning=FALSE, message=FALSE
+               , fig.align='center', fig.width=8, fig.height=4.5
+               , dpi=100, fig.path='iBagens/', fig.pos='H'
+               , background='#ffffff'
+               , results='hold', fig.show='hold')
+```
+
+# O que é um banco de dados?
