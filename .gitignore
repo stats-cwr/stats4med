@@ -1,0 +1,5 @@
+## Ignore emacs backup files
+.#*
+
+## Ignore R backup files
+.Rhistory
