@@ -16,7 +16,7 @@ eventuais seminários realizados para o grupo da Faculdade de Medicina.
 
 Este material é distribuído sob a licença
 [GNU General Public License, versão 2], descrita no arquivo
-[`LICENSE.md`], © 2015 E. E., Ribeiro Jr \& Laureano, A. H..
+[`LICENSE.md`], © 2015 E. E., Ribeiro Jr. E. E., \& Laureano, H. A..
 
 <!--------------------------------------------- -->
 [Eduardo E. R. Junior]: https://jreduardo.github.io/
