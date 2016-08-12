@@ -34,3 +34,42 @@ opts_chunk$set(size='small'
 ```
 
 # O que é um banco de dados?
+
+## Definição
+
+> Um banco de dados é uma coleção organizada de dados que se relaciona de forma a criar
+  algum sentido (informação) e dar mais eficiência durante uma pesquisa ou estudo
+
+\vfill
+
+Simplificando:
+
+\vspace{.75cm}
+
+> Banco de dados é uma coleção de dados interligados entre si e organizados para
+  fornecer informações
+
+## Dados *vs* Informações
+
+\[ {\rm Dados} \neq {\rm Informações} \]
+
+Dados:
+
+\vspace{.25cm}
+
+> Fatos brutos, em sua forma primária. Muitas vezes os dados podem não fazer sentido
+  sozinhos
+
+\vspace{.5cm}
+
+Informações:
+
+\vspace{.25cm}
+
+> Consiste no agrupamento de dados de forma organizada para fazer sentido, gerar
+  conhecimento
+
+\vfill
+
+Um banco de dados é uma estrutura de dados organizada que permite a extração de
+informações
