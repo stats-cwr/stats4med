@@ -1,5 +1,5 @@
 ---
-title: "Como montar seu banco de dados?"
+title: "Como montar meu banco de dados?"
 date: 16 de agosto de 2016
 header-includes:
    - \setbeamertemplate{navigation symbols}{}
@@ -73,3 +73,30 @@ Informações:
 
 Um banco de dados é uma estrutura de dados organizada que permite a extração de
 informações
+
+# Qual o ponto de partida?
+
+## Definições iniciais
+
+* Qual o objetivo do estudo? \vspace{.2cm}
+
+    + O que se deseja estudar? \vspace{.2cm}
+
+    + Qual a hipótese a ser testada? \vspace{.2cm}
+
+        - Qual(is) possível(is) diferença(s) deseja-se verificar?
+
+\vspace{.5cm}
+
+* Com seus objetivos definidos, quais características dos pacientes precisam ser
+  avaliadas / mensuradas? \vspace{.2cm}
+  
+    + Se for para pecar, peque por excesso \vspace{.2cm}
+
+        - É preferível ter mais informações mensuradas. Assim não se corre o risco
+          de inviabilizar uma possível análise pela ausência do registro de
+          informações
+
+# Como organizar meu banco de dados?
+
+## Como organizar meu banco de dados?
