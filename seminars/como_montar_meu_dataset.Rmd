@@ -5,6 +5,8 @@ header-includes:
    - \setbeamertemplate{navigation symbols}{}
    - \author[Eduardo Junior, Henrique Laureano]{Eduardo Elias Ribeiro Junior
                                                 \and Henrique Aparecido Laureano}
+   - \institute[]{Faculdade de Medicina \\ Universidade Federal de Minas Gerais \\
+                  UFMG}
 output: 
   beamer_presentation: 
     colortheme: dove
