@@ -5,7 +5,6 @@ header-includes:
    - \setbeamertemplate{navigation symbols}{}
    - \author[Eduardo Junior, Henrique Laureano]{Eduardo Elias Ribeiro Junior
                                                 \and Henrique Aparecido Laureano}
-   - \institute[]{Faculdade de Medicina \\ Universidade Federal de Minas Gerais \\ UFMG}
 output: 
   beamer_presentation: 
     colortheme: dove
@@ -100,3 +99,23 @@ informações
 # Como organizar meu banco de dados?
 
 ## Como organizar meu banco de dados?
+
+* Nas linhas os pacientes (unidades experimentais) \vspace{.3cm}
+
+* Nas colunas suas informações avaliadas / mensuradas \vspace{.3cm}
+
+* Cada informação mensurada deve ter sua própria coluna no banco de dados
+  \vspace{.3cm}
+
+* E se o paciente foi avaliado mais de uma vez em ao menos uma característica?
+  \vspace{.3cm}
+
+    + Ele deve receber uma nova linha no banco de dados, de preferência logo na linha
+      abaixo \vspace{.3cm}
+      
+    + Nas características que não foram novamente avaliadas repete-se o valor
+      (observação)
+
+# Alguns exemplos
+
+## Exemplo 1
