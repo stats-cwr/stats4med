@@ -7,6 +7,8 @@ header-includes:
                                                 \and Henrique Aparecido Laureano}
    - \institute[]{Faculdade de Medicina \\ Universidade Federal de Minas Gerais \\
                   UFMG}
+   - \usepackage{multicol}
+   - \usepackage{booktabs}
 output: 
   beamer_presentation: 
     colortheme: dove
@@ -109,6 +111,8 @@ informações
 * Cada informação mensurada deve ter sua própria coluna no banco de dados
   \vspace{.3cm}
 
+* Procure atribuir nomes concisos às informações \vspace{.3cm}
+
 * E se o paciente foi avaliado mais de uma vez em ao menos uma característica?
   \vspace{.3cm}
 
@@ -120,4 +124,69 @@ informações
 
 # Alguns exemplos
 
-## Exemplo 1
+## Diabetes em descendentes da tribo indígina Pima
+
+\begin{multicols}{2}
+ \begin{itemize}
+  \item id: identificador do paciente
+  \item npreg: número de gestações
+  \item glu: concentração de glicose no plasma
+  \item bp: pressão sanguínea
+  \item skin: espessura da prega cutânea no tríceps (mm)
+  \item bmi: índice de massa corporal
+  \item ped: diabetes pedigree
+  \item age: idade
+  \item type: yes ou no para diabetes
+ \end{itemize}
+\end{multicols}
+
+```{r, echo=FALSE, results='asis'}
+library(MASS)
+
+data("Pima.tr")
+
+library(xtable)
+
+print(xtable(cbind(id = 1:7, Pima.tr[1:7, ])
+             , align = rep("c", 10))
+      , include.rownames = FALSE
+      , comment = FALSE
+      , booktabs = TRUE)
+```
+
+## Monitoramento de transplantes (trans) do coração
+
+\begin{multicols}{2}
+ \begin{itemize}
+  \item id: identificador do paciente
+  \item age: idade na hora do trans
+  \item years: anos após o trans
+  \item dage: idade do doador
+  \item sex: sexo (0 = fem, 1 = masc)
+  \item pdiag: motivo do trans
+  \item cumrej: soma de episódios de rejeição aguda
+  \item st: estado na hora da consulta
+  \item fobs: trans (0 = não, 1 = sim)
+  \item stmax: estado máximo observado
+ \end{itemize}
+\end{multicols}
+
+```{r, echo=FALSE, results='asis'}
+library(msm)
+
+cav[ , 10] <- as.integer(cav[ , 10])
+
+data <- cbind(id = as.integer(rep(1, 7)), cav[1:7, -1])
+
+colnames(data)[8:10] <- c("st", "fobs", "stmax")
+
+print(
+  xtable(data, align = rep("c", 11))
+  , include.rownames = FALSE
+  , comment = FALSE
+  , booktabs = TRUE)
+```
+
+## 10 anos de cirurgia colorretal: \newline complicações e fatores de risco
+
+\includegraphics*[height = 7cm, width = 12cm]{print.JPG}
