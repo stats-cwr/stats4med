@@ -24,3 +24,7 @@
 *.synctex.gz
 *.synctex.gz(busy)
 *.pdfsync
+
+## Automatic files creates
+**/*cache/*
+**/*figure/*
