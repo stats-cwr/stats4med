@@ -13,9 +13,8 @@ output:
   beamer_presentation:
     colortheme: dove
     fonttheme: serif
-    highlight: kate
+    highlight: tango
     incremental: yes
-    keep_tex: yes
     theme: Madrid
     toc: yes
 ---
@@ -25,13 +24,17 @@ output:
 ```{r setup, include=FALSE}
 
 library(knitr)
-opts_chunk$set(size='small'
-               , cache=TRUE, cache.path='cache/'
-               , comment=NA, warning=FALSE, message=FALSE
-               , fig.align='center', fig.width=8, fig.height=4.5
-               , dpi=100, fig.path='iBagens/', fig.pos='H'
-               , background='#ffffff'
-               , results='hold', fig.show='hold')
+opts_chunk$set(cache=TRUE
+             , comment="#"
+             , warning=FALSE
+             , message=FALSE
+             , fig.align='center'
+             , fig.width=8
+             , fig.height=4.5
+             , fig.pos='H'
+             , results='hold'
+             , fig.show='hold')
+
 ```
 
 # O que é um banco de dados?
