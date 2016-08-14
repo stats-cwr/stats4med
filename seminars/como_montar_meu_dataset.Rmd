@@ -9,8 +9,8 @@ header-includes:
                   UFMG}
    - \usepackage{multicol}
    - \usepackage{booktabs}
-output: 
-  beamer_presentation: 
+output:
+  beamer_presentation:
     colortheme: dove
     fonttheme: serif
     highlight: kate
@@ -20,13 +20,11 @@ output:
     toc: yes
 ---
 
+<!-- Compile this file with encoding = "ISO8859-1" -->
+
 ```{r setup, include=FALSE}
+
 library(knitr)
-
-tema <- knit_theme$get("acid")
-
-knit_theme$set(tema)
-
 opts_chunk$set(size='small'
                , cache=TRUE, cache.path='cache/'
                , comment=NA, warning=FALSE, message=FALSE
@@ -93,7 +91,7 @@ informações
 
 * Com seus objetivos definidos, quais características dos pacientes precisam ser
   avaliadas / mensuradas? \vspace{.2cm}
-  
+
     + Se for para pecar, peque por excesso \vspace{.2cm}
 
         - É preferível ter mais informações mensuradas. Assim não se corre o risco
@@ -118,7 +116,7 @@ informações
 
     + Ele deve receber uma nova linha no banco de dados, de preferência logo na linha
       abaixo \vspace{.3cm}
-      
+
     + Nas características que não foram novamente avaliadas repete-se o valor
       (observação)
 
