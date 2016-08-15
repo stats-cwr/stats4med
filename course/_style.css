@@ -1,0 +1,56 @@
+/*------------------------------------------- */
+/* Configura estilo geral do documento */
+body {
+    text-align: justify;
+    font-size: 16px
+}
+
+/*------------------------------------------- */
+/* Configura o estilo do título */
+#header {
+    /* background-color: #F6F6F6; */
+    border-top: 0px solid #003A3A;
+    border-right: 0px solid black;
+    border-bottom: 0px solid #003A3A;
+    border-left: 0px solid black;
+    padding-top: 10px;
+    margin: 10px;
+}
+
+h1.title {
+    text-align: center;
+    line-height: 1;
+}
+
+h3.subtitle {
+    text-align: center;
+}
+
+h4.author {
+    text-align: center;
+}
+
+h4.date {
+    text-align: center;
+}
+
+/*------------------------------------------- */
+/* Configura a tabela de conteúdo */
+/* Geral TOC */
+#TOC {
+    border-radius: 0px;
+}
+
+/* Sob argumento yaml toc_float */
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+    font-weight: bold;
+}
+
+/*------------------------------------------- */
+/* Para messagem de atualização de página */
+#update-message{
+    font-size: 10pt;
+    text-align: right;
+    color: black;
+    padding-top: 20px;
+}

@@ -1,0 +1,25 @@
+name: ""
+output_dir: "_site/"
+include: ["_style.css"]
+output:
+  html_document:
+    includes:
+      after_body: _include-footer.html
+    theme: lumen
+    highlight: tango
+    css: _style.css
+navbar:
+  left:
+    - text: "Statistics for Medicine"
+      href: index.html
+  right:
+    - text: R course
+      href: .
+    - text: Seminars
+      menu:
+      - text: "Como montar meu dataset"
+        href: como_montar_meu_dataset.pdf
+    - text: About
+      href: about.html
+    - icon: fa-github-alt fa-lg
+      href: https://github.com/stats-cwr/stats4med

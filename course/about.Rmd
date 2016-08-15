@@ -1,0 +1,40 @@
+
+***
+
+# Os autores #
+
+**[Eduardo Elias Ribeiro Junior](https://jreduardo.github.io/):**
+Bacharel em Estatística pela Universidade Federal do Paraná em 2016,
+membro do Laboratório de Estatística e Geoinformação e bolsista FAPEMIG
+no Centro de Telessaúde do Hospital de Clínicas da UFMG. Tem como linhas
+de estudo modelos de regressão para dados de contagem, modelos mistos,
+ciência reproduzível com R e interfaces interativas para ensino de
+Estatística. É usuário ativo do R, Git e Linux e incentivador do uso de
+softwares livres.<br>
+**Contato:** edujrrib@gmail.com / GitHub:
+[JrEduardo](https://github.com/JrEduardo).
+
+**[Henrique Aparecido Laureano](http://lattes.cnpq.br/2224901552085090):**
+Bacharel em Estatística pela Universidade Federal do Paraná em 2016.<br>
+**Contato:** henriquelaureano@outlook.com / GitHub:
+[mynameislaure](https://github.com/mynameislaure).
+
+# O curso #
+
+O curso de Estatística com R para os alunos da Faculdade de Medicina da
+UFMG foi idealizado com o intuito de promover e capacitar os
+participantes na utilização do R para análise Estatística de suas
+pesquisas. Espera-se que, com a realização deste curso, os estudantes
+possam analisar adequadamente seus dados utilizando o R para análise,
+apresentação gráfica e elaboração de relatórios.
+
+```{r, results="asis", echo=FALSE}
+
+cat(paste0(
+    "<div id='update-message'>",
+    format(Sys.time(),
+           format = "Atualizado em %d de %B de %Y."),
+    "</div>"),
+    sep = "\n")
+
+```
