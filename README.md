@@ -1,5 +1,7 @@
 # Curso de Estatística com R para Medicina #
 
+[![Build Status](https://travis-ci.org/stats-cwr/stats4med.svg)](https://travis-ci.org/stats-cwr/stats4med)
+
 > [Eduardo E. R. Junior] & [Henrique Ap. Laureano]
 
 Este repositório contém todos os materiais elaborados para o curso de
