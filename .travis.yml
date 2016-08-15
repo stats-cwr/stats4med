@@ -1,0 +1,8 @@
+language: r
+
+before_script:
+  - chmod +x ./_deploy.sh
+
+script:
+  - Rscript -e "rmarkdown::render_site('course/')"
+  - ./_deploy.sh
