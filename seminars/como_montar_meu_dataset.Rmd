@@ -1,22 +1,26 @@
 ---
 title: "Como montar meu conjunto de dados?"
+author: >
+    Eduardo Elias Ribeiro Junior \and
+    Henrique Aparecido Laureano
+shortauthor: Eduardo Junior \& Henrique Laureano
+institute: >
+    Faculdade de Medicina \newline
+    Universide Federal de Minas Gerais - UFMG
 date: 16 de agosto de 2016
+fontsize: 10pt
 header-includes:
-   - \setbeamertemplate{navigation symbols}{}
-   - \author[Eduardo Junior, Henrique Laureano]{
-     Eduardo Elias Ribeiro Junior
-        \and Henrique Aparecido Laureano}
-   - \institute[]{Faculdade de Medicina\\
-        Universidade Federal de Minas Gerais - UFMG}
-   - \usepackage{multicol}
-   - \usepackage{booktabs}
+  - \usepackage{multicol}
+  - \usepackage{booktabs}
 output:
   beamer_presentation:
+    template: _template-beamer.tex
     colortheme: dove
     fonttheme: serif
     highlight: tango
     incremental: yes
     theme: Madrid
+    toc: yes
 ---
 
 <!-- Compile this file with encoding = "ISO8859-1" -->
