@@ -28,7 +28,7 @@ output:
 ```{r setup, include=FALSE}
 
 library(knitr)
-opts_chunk$set(cache=TRUE
+opts_chunk$set(cache=FALSE
              , comment="#"
              , warning=FALSE
              , message=FALSE
@@ -113,13 +113,15 @@ extração de informações.
 
 ## Como organizar meu banco de dados?
 
-* Nas linhas os pacientes (unidades experimentais);
+* Nas linhas as observações (unidades experimentais/amostrais:
+  pacientes, indivíduos, planta, etc.);
   \vspace{.3cm}
 
-* Nas colunas suas informações avaliadas/mensuradas;
+* Nas colunas suas características (informações avaliadas/mensuradas:
+  idade, peso, qtde de fertilizante, etc.);
   \vspace{.3cm}
 
-* Cada informação mensurada deve ter sua própria coluna no banco de
+* Cada característica mensurada deve ter sua própria coluna na tabela de
   dados;
   \vspace{.3cm}
 
@@ -130,12 +132,34 @@ extração de informações.
   característica?
   \vspace{.3cm}
 
-    + Ele deve receber uma nova linha no banco de dados, de preferência
+    + Ele deve receber uma nova linha na tabela de dados, de preferência
       logo na linha abaixo.
       \vspace{.3cm}
 
     + Nas características que não foram novamente avaliadas repete-se o
       valor (observação).
+
+## Como organizar meu banco de dados?
+
+\begin{columns}[c]
+  \column{.4\textwidth}
+\begin{flushright}
+  \includegraphics[scale=0.7]{./images/ilustra-dataset}
+\end{flushright}
+  \hfill
+\column{.6\textwidth}
+\pause
+Dicas importantes:
+\begin{itemize}
+  \item Documente seu conjunto de dados (elabore um dicionário
+  explicando as características/variáveis mensuradas);
+  \pause
+  \item Seja cuidadoso ao preencher a tabela de dados.\\
+    Siga um padrão para preencher as variáveis categóricas!
+  \pause
+  \item Não resuma informação!
+\end{itemize}
+\end{columns}
 
 # Alguns exemplos
 
