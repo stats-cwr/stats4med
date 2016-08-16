@@ -23,9 +23,9 @@ output:
     toc: yes
 ---
 
-<!-- Compile this file with encoding = "ISO8859-1" -->
-
 ```{r setup, include=FALSE}
+
+## Compile this file with encoding = "ISO8859-1"
 
 library(knitr)
 opts_chunk$set(cache=FALSE
@@ -40,6 +40,14 @@ opts_chunk$set(cache=FALSE
              , fig.show='hold')
 
 ```
+
+## Disponibilização ##
+
+\centering
+\url{https://stats-cwr.github.io/stats4med}
+
+\vspace{0.1cm}
+\includegraphics[scale=0.3]{./images/screenshot-site}
 
 # O que é um banco de dados?
 
@@ -103,15 +111,15 @@ extração de informações.
   precisam ser avaliadas/mensuradas?
   \vspace{.2cm}
 
-    + Se for para pecar, peque por excesso!
+    + Se for para pecar, peque por excesso!\
       \vspace{.2cm}
       É preferível ter mais informações mensuradas. Assim não se corre o
       risco de inviabilizar uma possível análise pela ausência do
       registro de informações.
 
-# Como organizar meu banco de dados?
+# Como organizar meu conjunto de dados?
 
-## Como organizar meu banco de dados?
+## Como organizar meu conjunto de dados?
 
 * Nas linhas as observações (unidades experimentais/amostrais:
   pacientes, indivíduos, planta, etc.);
@@ -154,10 +162,11 @@ Dicas importantes:
   \item Documente seu conjunto de dados (elabore um dicionário
   explicando as características/variáveis mensuradas);
   \pause
-  \item Seja cuidadoso ao preencher a tabela de dados.\\
-    Siga um padrão para preencher as variáveis categóricas!
+  \item Seja cuidadoso ao preencher a tabela de dados.
+    Siga um padrão para as variáveis categóricas!
   \pause
-  \item Não resuma informação!
+  \item Não resuma os conjunto de dados! Isto será feito posteriormente,
+  na análise.
 \end{itemize}
 \end{columns}
 
@@ -225,9 +234,6 @@ print(
 
 ```
 
-##
-
-10 anos de cirurgia colorretal: complicações e fatores de risco
-\vspace{0.5cm}
+## 10 anos de cirurgia colorretal: \newline complicações e fatores de risco
 
 \includegraphics*[height = 7cm, width = 12cm]{images/print}
