@@ -15,7 +15,11 @@ softwares livres.<br>
 [JrEduardo](https://github.com/JrEduardo).
 
 **[Henrique Aparecido Laureano](http://lattes.cnpq.br/2224901552085090):**
-Bacharel em Estatística pela Universidade Federal do Paraná em 2016.<br>
+Bacharel em Estatística pela Universidade Federal do Paraná em 2016,
+membro do Laboratório de Estatística e Geoinformação e bolsista FAPEMIG
+no Centro de Telessaúde do Hospital de Clínicas da UFMG. Tem como linhas
+de estudo modelos mistos de regressão linear e não linear, análise de sobrevivência, com foco em modelos multiestados, e ciência reproduzível com R. É usuário ativo do R e Git e incentivador do uso de softwares
+livres.<br>
 **Contato:** henriquelaureano@outlook.com / GitHub:
 [mynameislaure](https://github.com/mynameislaure).
 
