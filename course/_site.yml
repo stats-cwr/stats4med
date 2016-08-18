@@ -18,7 +18,9 @@ navbar:
     - text: Seminars
       menu:
       - text: "Como montar meu dataset"
-        href: como_montar_meu_dataset.pdf
+        href: seminars/como_montar_meu_dataset.pdf
+      - text: "Modelos COM-Poisson"
+        href: seminars/modelos_COM_Poisson_e_extensoes.pdf
     - text: About
       href: about.html
     - icon: fa-github-alt fa-lg
