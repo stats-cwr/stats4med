@@ -21,8 +21,8 @@ navbar:
         href: seminars/como_montar_meu_dataset.pdf
       - text: "Extensões e Aplicações dos Modelos COM-Poisson"
         href: seminars/modelo_COM_Poisson_e_extensoes.pdf
-      - text: "Aplicacões de Modelos Multiestados"
-        href: seminars/aplicacoes_de_modelos_multiestados.pdf
+      - text: "Modelos Multiestados"
+        href: seminars/modelos_multiestados.pdf
     - text: About
       href: about.html
     - icon: fa-github-alt fa-lg
