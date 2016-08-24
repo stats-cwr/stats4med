@@ -19,10 +19,10 @@ navbar:
       menu:
       - text: "Como montar meu dataset"
         href: seminars/como_montar_meu_dataset.pdf
-      - text: "Modelos COM-Poisson"
+      - text: "Extensões e Aplicações dos Modelos COM-Poisson"
         href: seminars/modelo_COM_Poisson_e_extensoes.pdf
-      - text: "Aplica��o de Modelos Multiestados"
-        href: seminars/aplicacao_de_modelos_multiestados.pdf
+      - text: "Aplicacões de Modelos Multiestados"
+        href: seminars/aplicacoes_de_modelos_multiestados.pdf
     - text: About
       href: about.html
     - icon: fa-github-alt fa-lg
