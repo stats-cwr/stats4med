@@ -14,7 +14,7 @@ como o pacote [rmarkdown](http://rmarkdown.rstudio.com/) do R, cujo
 arquivos-fonte estão disponíveis em nosso
 [repositório GitHub](https://github.com/stats-cwr/stats4med). As aulas
 podem ser acessadas pela barra de navegação ou ainda pela página
-[Curso R](rcourse-00.html).
+[Curso R](rcourse.html).
 
 Além de todo o material do curso também disponibilizamos aqui, os slides
 de eventuais seminários realizados para o grupo da Faculdade de

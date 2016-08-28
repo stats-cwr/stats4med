@@ -14,7 +14,7 @@ navbar:
       href: index.html
   right:
     - text: R course
-      href: .
+      href: rcourse.html
     - text: Seminars
       menu:
       - text: "Como montar meu dataset"

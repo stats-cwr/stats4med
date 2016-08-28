@@ -1,0 +1,127 @@
+---
+title: "Statistics course with R"
+output: html_document
+---
+
+***
+
+## Detalhes ##
+
+Curso idealizado para alunos da Faculdade de Medicina da UFMG, com o
+intuito de promover tanto a utilização do R para análise estatística,
+como também as técnicas estatísticas adequadas para análise de dados.
+
+ * **Período:** 2º semestre de 2016.
+ * **Instrutores:**
+     - [**Eduardo E. R. Junior**][eduardo]
+       (<edujrrib@gmail.com>)
+     - [**Henrique Ap. Laureano**][henrique]
+       (<henriquelaureano@outlook.com>)
+ * **Horário:** Terças-feiras das 17h30 às 19h00
+ * **Local:** Faculdade de Medicina da UFMG, sala 535.
+
+## Ementa ##
+
+Os tópicos que abrangem esse curso serão:
+
+ * O software R e conceitos da linguagem;
+ * Manipulação de objetos;
+ * Leitura e exploração de dados;
+ * Visualização de dados (pacotes: `graphics`, `lattice`, `ggplot2`);
+ * Testes de hipóteses;
+ * Modelos de regressão;
+ * Elaboração de relatórios reproduzíveis;
+
+## Calendário ##
+
+```{r, echo=FALSE}
+
+datas <- seq(as.Date("2016/8/30"), as.Date("2016/11/30"), "week")
+datas <- as.character(format(datas, "%d-%b"))
+conteudos <- materiais <- objetivos <- rep("", length(datas))
+
+##======================================================================
+
+##-------------------------------------------
+## DIA 30/08
+conteudos[1] <- c(
+    paste("Motivação para o curso - apresentação do software R;",
+          "importância da análise estatística; instalação do software"))
+materiais[1] <- c("[rcourse00](./rcourse00.html)")
+objetivos[1] <- "Conhecer o potencial e instalar o software R"
+
+##-------------------------------------------
+## DIA 06/09
+conteudos[2] <- "-------------------------------------------"
+
+##-------------------------------------------
+## DIA 13/09
+conteudos[3] <- "-------------------------------------------"
+
+##-------------------------------------------
+## DIA 20/09
+conteudos[4] <- "Conceitos da linguagem e Manipulação de objetos"
+
+##-------------------------------------------
+## DIA 27/09
+conteudos[5] <- "-------------------------------------------"
+
+##-------------------------------------------
+## DIA 04/10
+conteudos[6] <- "Visualização de dados - o emprego dos gráficos"
+
+##-------------------------------------------
+## DIA 11/10
+conteudos[7] <- paste("Visualização de dados - pacotes avançados",
+                      "`lattice` e `ggplot2`")
+
+##-------------------------------------------
+## DIA 18/10
+conteudos[8] <- "-------------------------------------------"
+
+##-------------------------------------------
+## DIA 25/10
+conteudos[9] <- "Testes de hipóteses"
+
+##-------------------------------------------
+## DIA 01/11
+conteudos[10] <- paste("Modelos de regressão (overview modelos de",
+                      "regressão linear simples)")
+
+##-------------------------------------------
+## DIA 08/11
+conteudos[11] <- "-------------------------------------------"
+
+##-------------------------------------------
+## DIA 15/11
+conteudos[12] <- "-------------------------------------------"
+
+##-------------------------------------------
+## DIA 22/11
+conteudos[13] <- "-------------------------------------------"
+
+##-------------------------------------------
+## DIA 29/11
+conteudos[14] <- "Elaboração de documentos dinâmicos"
+
+##======================================================================
+
+knitr::kable(cbind("Datas" = datas, "Conteúdos" = conteudos,
+                   "Objetivos" = objetivos, "Materiais" = materiais))
+
+```
+
+```{r, results="asis", echo=FALSE}
+
+cat(paste0(
+    "<div id='update-message'>",
+    format(Sys.time(),
+           format = "Atualizado em %d de %B de %Y."),
+    "</div>"),
+    sep = "\n")
+
+```
+
+<!--------------------------------------------- -->
+[eduardo]: http://lattes.cnpq.br/9517198687029938
+[henrique]: http://lattes.cnpq.br/2224901552085090
