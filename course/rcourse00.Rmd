@@ -8,7 +8,6 @@ output:
     theme: serif
     transition: slide
     css: _style-reveal.css
-    incremental: false
 ---
 
 ```{r setup, include=FALSE}
@@ -26,17 +25,64 @@ library(gridExtra)
 
 ```
 
-<!-- ## ## {data-background=#383D3D} -->
-<!--  -->
-<!-- <h1 class="slide-title">Método científico</h1> -->
-<!--  -->
-<!-- ## ## {data-background=#383D3D} -->
-<!--  -->
-<!-- <h1 class="slide-title">O emprego Estatística</h1> -->
-<!--  -->
-<!-- ## ## {data-background=#383D3D} -->
-<!--  -->
-<!-- <h1 class="slide-title">Recursos Computacionais</h1> -->
+## ## {data-background=#383D3D}
+
+<h1 class="slide-title">Estatística</h1>
+
+## Método Científico ##
+
+```{r, out.width = "100%"}
+
+knitr::include_graphics("images/metodo.png")
+
+```
+
+_"Without data, you're just another person with an opinion."_\
+-- W. Edwards Deming
+
+
+## Estatística ##
+
+A ciência que obtêm informações a partir de dados, quantificando a
+incerteza inerente ao processo de coleta.
+
+A Estatística é uma ciência multidisciplinar e atua nas diferentes fases
+de uma pesquisa:
+
+ * Planejamento da coleta de dados;
+ * Amostragem;
+ * Análise Exploratória;
+ * Inferência Estatística;
+
+## Recursos computacionais ##
+
+<div id="col-right">
+
+<div class="fragment" data-fragment-index="1">
+
+```{r, out.width = "90%"}
+
+knitr::include_graphics("images/tabs.png")
+
+```
+
+</div>
+</div>
+
+<div id="col-left">
+
+<div class="fragment" data-fragment-index="2">
+
+Softwares:
+
+ * **R**;
+ * SAS;
+ * Minitab;
+ * SPSS;
+ * Stata;
+
+</div>
+</div>
 
 ## ## {data-background=#383D3D}
 
@@ -55,11 +101,14 @@ Além de produto gratuito.
 
 ## Linguagem de programação ##
 
+_There is R. There is no if. Only how._\
+-- Simon Blomberg
+
 ```{r, echo=TRUE}
 
 ## Medidas resumo de todas as variáveis
 dados <- mtcars
-do.call(rbind, sapply(dados, summary))
+do.call(rbind, lapply(dados, summary))
 
 ```
 
@@ -197,6 +246,7 @@ knitr::include_graphics("images/rstudio.png")
 
 ## Tutoriais ##
 
+
 <div id="col-right">
 Tutoriais interativos:
 
@@ -207,8 +257,8 @@ Tutoriais interativos:
 <div id="col-left">
 Materiais não interativos:
 
- * Apostila do LEG UFPR
- * Apostila UFSM
+ * [Apostila do LEG UFPR](http://www.leg.ufpr.br/~paulojus/embrapa/Rembrapa/)
+ * [Apostila UFSM](http://www.uft.edu.br/engambiental/prof/catalunha/arquivos/r/r_bruno.pdf)
 </div>
 
 <!--------------------------------------------- -->
