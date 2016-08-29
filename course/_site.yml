@@ -1,6 +1,6 @@
 name: ""
 output_dir: "_site/"
-include: ["_style.css"]
+include: ["_style.css", "_style-reveal.css"]
 output:
   html_document:
     includes:
