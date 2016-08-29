@@ -1,0 +1,88 @@
+p {
+    text-align: left !important;
+}
+
+/*-------------------------------------------*/
+
+.reveal h1 {
+    font-size: 1.5em;
+}
+
+h1.title {
+    margin-top: 10%;
+    font-size: 2.5em !important;
+}
+
+h2.author {
+    font-size: 1em !important;
+    font-style: italic;
+    line-height: 15px
+}
+
+h3.date {
+    font-size: 80%;
+}
+
+.reveal a {
+    color: #0091ED !important;
+}
+
+.reveal ol, .reveal dl, .reveal ul {
+    float: left;
+}
+
+.reveal section img {
+    margin: auto;
+    display: block;
+    background: rgba(255, 255, 255, 0.12);
+    border: none !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+/*
+https://css-tricks.com/snippets/css/triangular-list-bullets/
+*/
+ul {
+    margin: 0.95em 0;
+    padding: 0 1em;
+    list-style: none !important;
+}
+ul > li:before {
+    content: "";
+    border-color: transparent #111;
+    border-style: solid;
+    border-width: 0.25em 0 0.25em 0.45em;
+    display: block;
+    height: 0;
+    width: 0;
+    left: -1em;
+    top: 1em;
+    position: relative;
+}
+
+/*------------------------------------------- */
+
+h1.slide-title {
+    font-size: 2em;
+    color: #F0F1EB;
+    text-align: left;
+    margin-top: 50%;
+}
+
+div.link {
+    font-size: 0.6em;
+}
+
+/*------------------------------------------- */
+/* Duas colunas */
+#col-left{
+    width: 50%;
+    height: 300px;
+    float: left;
+}
+
+#col-right{
+    width: 50%;
+    height: 400px;
+    float: left;
+}
