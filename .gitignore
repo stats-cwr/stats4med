@@ -28,6 +28,7 @@
 ## Automatic files creates
 **/*cache/*
 **/*figure/*
+**/*_files/*
 
 ## Automatic files creates for site
 course/_site/*
