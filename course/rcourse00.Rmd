@@ -1,5 +1,5 @@
 ---
-title: "Por que Estatística com o R?"
+title: "Estatística com o R"
 author:
   - Eduardo E. R. Junior
   - Henrique Ap. Laureano
