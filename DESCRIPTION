@@ -1,4 +1,12 @@
 Package: stats4med
 Title: Statistics for Medicine
 Version: 0.0.1
-Imports: rmarkdown
+Imports:
+  rmarkdown,
+  revealjs,
+  knitr,
+  ggplot2,
+  grid,
+  gridExtra,
+  lattice,
+  latticeExtra

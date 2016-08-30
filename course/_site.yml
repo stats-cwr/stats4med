@@ -1,6 +1,6 @@
 name: ""
 output_dir: "_site/"
-include: ["_style.css"]
+include: ["_style.css", "_style-reveal.css"]
 output:
   html_document:
     includes:
@@ -14,7 +14,7 @@ navbar:
       href: index.html
   right:
     - text: R course
-      href: .
+      href: rcourse.html
     - text: Seminars
       menu:
       - text: "Como montar meu dataset"
