@@ -1,0 +1,55 @@
+---
+title: Machine Learning in Medicine \newline
+subtitle: Rahul C. Deo, MD, PhD \newline
+          \vspace{.5cm}
+          \textit{Circulation}. 2015;132\text{:}1920-1930
+          \footnote{DOI\text{:} 10.1161/CIRCULATIONNAHA.115.001593.}
+          \newline
+          \vspace{.5cm}
+          Uma conversa sobre o \textit{paper}
+author: >
+    Eduardo Elias Ribeiro Junior \and
+    Henrique Aparecido Laureano
+shortauthor: Eduardo Junior \& Henrique Laureano
+institute: >
+    Faculdade de Medicina \newline
+    Universide Federal de Minas Gerais - UFMG
+date: 13 de setembro de 2016
+fontsize: 10pt
+header-includes:
+  - \usepackage{multicol}
+  - \usepackage{booktabs}
+output:
+  beamer_presentation:
+    template: _template-beamer.tex
+    colortheme: dove
+    fonttheme: serif
+    highlight: tango
+    incremental: yes
+    theme: Madrid
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+
+## Compile this file with encoding = "ISO8859-1"
+
+library(knitr)
+
+opts_chunk$set(cache = FALSE
+               , comment = "#"
+               , warning = FALSE
+               , message = FALSE
+               , fig.align = 'center'
+               , fig.width = 8
+               , fig.height =4.5
+               , fig.pos = 'H' 
+               , results = 'hold'
+               , fig.show = 'hold')
+```
+
+## Disponibilização
+
+\centering \url{https://stats-cwr.github.io/stats4med}
+
+\vspace{.1cm} \includegraphics[scale=.3]{./images/screenshot-site}
