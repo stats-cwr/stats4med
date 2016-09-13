@@ -2,11 +2,11 @@
 title: Machine Learning in Medicine \newline
 subtitle: Rahul C. Deo, MD, PhD \newline
           \vspace{.5cm}
-          \textit{Circulation}. 2015;132\text{:}1920-1930
-          \footnote{DOI\text{:} 10.1161/CIRCULATIONNAHA.115.001593.}
           \newline
           \vspace{.5cm}
           Uma conversa sobre o \textit{paper}
+          \textit{Circulation}. 2015;132\text{:}1920-1930
+          \footnote{DOI\text{:} 10.1161/CIRCULATIONNAHA.115.001593.}
 author: >
     Eduardo Elias Ribeiro Junior \and
     Henrique Aparecido Laureano
@@ -21,11 +21,10 @@ header-includes:
   - \usepackage{booktabs}
 output:
   beamer_presentation:
-    template: _template-beamer.tex
     colortheme: dove
     fonttheme: serif
     highlight: tango
-    incremental: no
+    template: _template-beamer.tex
     theme: Madrid
     toc: yes
 ---
@@ -103,9 +102,11 @@ baixa relevância e como mudar esse cenário.
 
 ###
 
-* Modelos de regressão linear, como a regressão logística
+* Modelos estatísticos de regressão linear, como a regressão
+  logística
 
-    + Características entram no modelo de forma aditiva e linear
+    + Uma distribuição de probabilidade é assumida para a
+      variável resposta condicionada as suas características
 
 \vspace{.25cm}
 
@@ -118,8 +119,8 @@ baixa relevância e como mudar esse cenário.
 
 * Redes neurais
 
-    + Prediz uma resposta com base em representações
-      transformadas das características
+    + Prediz uma resposta com base em representações transformadas
+      das características
 
 \vspace{.25cm}
 
@@ -127,3 +128,11 @@ baixa relevância e como mudar esse cenário.
 
     + Determina classes a partir dos valores das características
       dos k vizinhos mais próximos
+
+# Aprendizado supervisionado - aprendendo de florestas e árvores
+
+# C-Path: um patologista automatizado e a importância da extração de características
+
+# Atrator de metagenes em câncer e bake-offs em aprendizado de máquina
+
+# Aprendizado não supervisionado em HFpEF: Em direção a medicina precisa?
