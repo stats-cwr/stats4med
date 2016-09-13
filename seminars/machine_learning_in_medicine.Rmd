@@ -25,7 +25,7 @@ output:
     colortheme: dove
     fonttheme: serif
     highlight: tango
-    incremental: yes
+    incremental: no
     theme: Madrid
     toc: yes
 ---
@@ -53,3 +53,77 @@ opts_chunk$set(cache = FALSE
 \centering \url{https://stats-cwr.github.io/stats4med}
 
 \vspace{.1cm} \includegraphics[scale=.3]{./images/screenshot-site}
+
+# Proposta
+
+## Proposta do *paper*
+
+###
+
+Revisão das áreas médicas que podem ser beneficiadas com a 
+utilização das abordagens de aprendizado e através de exemplos da
+literatura introduzir conceitos básicos em aprendizado de
+máquina: \vspace{.75cm}
+
+* Apesar da enorme quantidade de conjuntos de dados da área
+  médica e do uso dos algoritmos de aprendizagem adequados,
+  pouquíssimos estudos tem significativa contribuição, o que
+  causa um contraste com a significância obtida em várias outras
+  áreas. \vspace{.75cm}
+
+Portanto, outro objetivo do *paper* é encontrar razões para essa
+baixa relevância e como mudar esse cenário.
+
+## Divisões
+
+### Usualmente: \vspace{.25cm}
+
+* Aprendizado supervisionado
+
+    + Predição de uma saída ou alvo conhecido (interpretação de
+      um ECG ou a detecção de nódulos num raio-x), i.e., o
+      computador está aproximando o que um médico treinado já é
+      capaz de fazer com alta precisão
+
+* Aprendizado não supervisionado
+
+    + Não existem saídas para serem preditas. O objetivo é
+      encontrar naturalmente a ocorrência de padrões ou a
+      realização de agrupamentos
+
+### Proposta: \vspace{.25cm}
+
+* Técnicas utilizadas em situações cujas quais os médicos já se
+  saem bem
+
+* Técnicas utilizadas em situações cujas quais os médicos tem
+  apenas sucesso limitado
+
+## Algumas técnicas utilizadas
+
+###
+
+* Modelos de regressão linear, como a regressão logística
+
+    + Características entram no modelo de forma aditiva e linear
+
+\vspace{.25cm}
+
+* Árvores de decisão
+
+    + A cada ponto de quebra é feita uma partição com base nos
+      valores de uma particular característica
+
+\vspace{.25cm}
+
+* Redes neurais
+
+    + Prediz uma resposta com base em representações
+      transformadas das características
+
+\vspace{.25cm}
+
+* K vizinhos mais próximos
+
+    + Determina classes a partir dos valores das características
+      dos k vizinhos mais próximos
