@@ -2,7 +2,8 @@
 /* Configura estilo geral do documento */
 body {
     text-align: justify;
-    font-size: 16px
+    font-size: 16px;
+    color: #000;
 }
 
 /*------------------------------------------- */
@@ -32,6 +33,11 @@ h4.author {
 
 h4.date {
     text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    color: #000;
 }
 
 /*------------------------------------------- */
@@ -89,7 +95,7 @@ table.wide {
 }
 
 th, td, tr {
-    color: #555555;
+    /* color: #555555; */
     border-bottom: 0px;
     border-top: 0px;
     border-left: 0px;
@@ -112,4 +118,25 @@ th.none {
     > th, .table > thead > tr > td, .table > tbody > tr > td, .table >
     tfoot > tr > td {
     vertical-align: middle;
+}
+
+/*------------------------------------------- */
+/* codigos */
+pre {
+    border: 0px solid #CCC;
+    border-radius: 0px;
+    padding: 9.5px;
+}
+
+code {
+    color: inherit;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+pre, code {
+    background-color: #DEDEDE;
+}
+
+pre:not([class]) {
+    background-color: #C8C8C8;
 }
