@@ -107,3 +107,9 @@ th {
 th.none {
     border-bottom: 0px solid #333333;
 }
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr
+    > th, .table > thead > tr > td, .table > tbody > tr > td, .table >
+    tfoot > tr > td {
+    vertical-align: middle;
+}

@@ -11,9 +11,12 @@
 
 
 
-<title>stats4med: Statistics for Medicine</title>
+<title>Conceito da linguagem e manipulação de objetos</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -143,8 +146,108 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
 
 
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.9em;
+  padding-left: 5px;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -203,19 +306,89 @@ $(document).ready(function () {
 
 <div class="fluid-row" id="header">
 
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
 
 
-<h1 class="title toc-ignore"><code>stats4med</code>: Statistics for Medicine</h1>
-<h3 class="subtitle"><em>Statistics course with R for medicine students</em></h3>
+
+<h1 class="title toc-ignore">Conceito da linguagem e manipulação de objetos</h1>
 
 </div>
 
 
 <hr />
-<p>Esta página web foi criada para armazenamento e disponibilização dos materiais elaborados para o curso de Estatística com R, ministrado para os alunos de graduação e pós-graduação em Medicina na Faculdade de Medicina da UFMG. Os materiais do curso são elaborados, essencialmente, como o pacote <a href="http://rmarkdown.rstudio.com/">rmarkdown</a> do R, cujo arquivos-fonte estão disponíveis em nosso <a href="https://github.com/stats-cwr/stats4med">repositório GitHub</a>. As aulas podem ser acessadas pela barra de navegação ou ainda pela página <a href="rcourse.html">Curso R</a>.</p>
-<p>Além de todo o material do curso também disponibilizamos aqui, os slides de eventuais seminários realizados para o grupo da Faculdade de Medicina. Esses materiais são listados no campo <code>Seminars</code>, da barra de navegação.</p>
+<div id="o-software-r" class="section level1">
+<h1>O software R</h1>
+<p>Como já discutido na <a href="./rcourse00.html">aula motivacional</a> para o curso, R é uma linguagem e ambiente para computação estatística e gráfica disponível sob os termos da licença GNU de software livre. Criada em 1996 por Robert Gentleman and Ross Ihaka, o R pode ser considerado um diferente implementação de S, a linguagem comercial desenvolvida pela Bell Laboratories que antecede o R.</p>
+</div>
+<div id="algoritmos-e-programacao" class="section level1">
+<h1>Algoritmos e programação</h1>
+</div>
+<div id="funcoes-de-auto-ajuda" class="section level1">
+<h1>Funções de auto ajuda</h1>
+</div>
+<div id="aritmetica-e-objetos" class="section level1">
+<h1>Aritmética e objetos</h1>
+<div id="operacoes-aritmeticas" class="section level2">
+<h2>Operações aritméticas</h2>
+</div>
+<div id="operacoes-logicas" class="section level2">
+<h2>Operações lógicas</h2>
+</div>
+<div id="valores-especiais" class="section level2">
+<h2>Valores especiais</h2>
+</div>
+<div id="criando-objetos" class="section level2">
+<h2>Criando objetos</h2>
+</div>
+</div>
+<div id="tipos-de-objetos" class="section level1">
+<h1>Tipos de objetos</h1>
+<div id="vetores" class="section level2">
+<h2>Vetores</h2>
+</div>
+<div id="matrizes" class="section level2">
+<h2>Matrizes</h2>
+</div>
+<div id="data-frames" class="section level2">
+<h2>Data frames</h2>
+</div>
+<div id="listas" class="section level2">
+<h2>Listas</h2>
+</div>
+<div id="funcoes" class="section level2">
+<h2>Funções</h2>
+</div>
+</div>
+<div id="pacotes-em-r" class="section level1">
+<h1>Pacotes em R</h1>
+</div>
+<div id="entrada-de-dados" class="section level1">
+<h1>Entrada de dados</h1>
+<div id="diretamente-no-r" class="section level2">
+<h2>Diretamente no R</h2>
+</div>
+<div id="de-arquivos-externos" class="section level2">
+<h2>De arquivos externos</h2>
+</div>
+</div>
+<div id="extraindo-estatisticas-simples" class="section level1">
+<h1>Extraindo estatísticas simples</h1>
+<div id="familia-apply" class="section level2">
+<h2>Familía apply</h2>
+</div>
+<div id="bases-disponiveis" class="section level2">
+<h2>Bases disponíveis</h2>
 <div id="update-message">
 Atualizado em 19 de September de 2016.
+</div>
+<!--------------------------------------------- -->
+</div>
 </div>
 
 <br>
@@ -235,6 +408,8 @@ Atualizado em 19 de September de 2016.
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
+</div>
+</div>
 
 </div>
 
