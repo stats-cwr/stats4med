@@ -13,13 +13,133 @@ output:
 # O software R #
 
 Como já discutido na [aula motivacional](./rcourse00.html) para o curso,
-R é uma linguagem e ambiente para computação estatística e gráfica
+R é uma linguagem e ambiente para computação estatística e gráfica,
 disponível sob os termos da licença GNU de software livre. Criada em
 1996 por Robert Gentleman and Ross Ihaka, o R pode ser considerado um
 diferente implementação de S, a linguagem comercial desenvolvida pela
-Bell Laboratories que antecede o R.
+Bell Laboratories, que antecede o R.
 
-# Algoritmos e programação #
+Pode-se destacar diversos tópicos que fazem do R a excelência em
+software para manipulação de dados, análise estatística e visualização
+gráfica, porém listamos apenas alguns abaixo:
+
+ * Eficaz em manipulação e armazenamento de dados;
+ * Grande conjunto de recursos para calculos vetoriais e matriciais;
+ * Diversas ferramentas para análise de dados;
+ * Ampla suíte de funções para visualização de dados, que podem ser
+   exportados para diversos formatos;
+ * Linguagem de programação simples e eficaz (loops, condicionais,
+   funções recursivas, etc.); e
+ * Simples construção e disponibilização de pacotes com funções
+   específicas, via CRAN (Comprehensive R Archive Network)
+
+Explore o sítio o projeto R e o espelho c3sl UFPR da rede global de
+arquivos R.
+
+ * **Projeto R** (<https://www.r-project.org/>);
+ * **Repositório R** (<http://cran-r.c3sl.ufpr.br/>)
+
+Outros sites interessantes sobre iniciativas com o R são:
+
+ * **ROpenSci** - R Open Science (<https://ropensci.org/>);
+ * **RConsortium** - grupo para prestar suporte a Comunidade R
+ (<https://www.r-consortium.org/>);
+ * **MRAN** - Microsoft R Application Network
+ (<https://mran.revolutionanalytics.com/>)
+ * **FOAS** - Foundation for Open Access Statistics
+   (<http://www.foastat.org/>)
+
+# RStudio IDE #
+
+O ambiente de desenvilvimento integrado - IDE (Intergrated DEvelopment
+Environment) RStudio é um produto da empresa RStudio
+(<https://www.rstudio.com/>) que, como o próprio nome diz, é um ambiente
+de desenvolvimento integrado de códigos R. O RStudio IDE permite o
+desenvolvimento de códigos de outras linguagens também, porém diversas
+funcionalidade são otimizadas para R.
+
+O download do RStudio IDE pode ser feito pelo endereço
+<https://www.rstudio.com/products/rstudio/download/> com versões
+disponíveis para diversas plataformas (Linux, Windows e MAC).
+
+No curso utilizaremos essencialmente o RStudio por facilidade, mas
+existem outros editores e o usuário de R tem a liberdade para
+escolher o que mais lhe agrada. Para a escolha de um editor destacamos
+algumas ferramentas que são indispensáveis para um bom desenvolvimento
+de programação R:
+
+ * Destaque de código;
+ * Destaque de marcadores de ambiente (parênteses, chaves e colchetes);
+ * Identação automática;
+ * Auto-completar de função e objetos; e
+ * Interação para edição de documentos híbridos (R+Markdown e R+LaTeX).
+
+
+## Elementos da interface ##
+
+Ao instalar o RStudio, temos a interface do programa com a seguinte
+estrutura descrita abaixo:
+
+![](./images/rstudio-detalhes.png)
+
+em que:
+
+(A): Barra de navegação
+: Contém todas as funcionalidades do RStudio IDE desde criar, abrir
+arquivos e ferramentas para edição de códigos (desfazer, refazer, etc.)
+além de inserir seções até as configurações globais e documentos de
+ajuda sobre o programa.
+
+(B): Barra de acesso rápido
+: Esses são apenas atalhos rápidos para algumas rotinas mais utilizadas
+pelos usuários como criar, abrir, salvar arquivos, por exemplo.
+
+(C): Edição de scripts
+: Este é o ambiente no qual escrevemos nossos códigos. Todo o código de
+uma análise é escrito nesse campo. Como já dito o RStudio não é um
+editor somente de R, arquivos R e de outras linguagens também podem ser
+editados aqui. Note que vários arquivos podem ser abertos
+simultaneamente, eles ficarão dispostos em abas nesse painel.
+
+(D): Console R
+: Nesse campo temos o R propriamente dito, o chamamos de console R. Tudo
+que for escrito aqui será automaticamente interpretado. O que fazemos é
+enviar os códigos escritos em (C) para cá, com o atalho de teclado
+`Crtl+R`, ou atalho da interface.
+
+(E): Visualização de objetos e códigos elaborados
+: Esse painel é composto por duas abas. A primeira, *Environment*, exibe
+as variáveis de ambiente criadas durante a sessão e a segunda, *History*
+exibe toda a sequência de códigos interpretada pelo console na sessão.
+
+(F): Visualização gráficos, arquivos, pacotes e ajuda
+: Neste painel têm-se diversas abas listadas abaixo:
+  * *Files*: explorador de arquivos do R;
+  * *Plots*: visualização de gráficos interpretados pelo console (D);
+  * *Packages*: lista de pacotes instalados e atalho para instalação de
+    pacotes;
+  * *Help*: lista de ajuda para funções do R e atalho para suportes
+    online do RStudio; e
+  * *Viewer*: Visualizador de outputs web, como páginas html,
+    aplicativos Shiny, apresentações Rpres ou documentos pdf.
+
+Aqui foram listados, brevemente, alguns aspectos da interface, todavia
+seja curioso e explore as demais funcionalidades do RStudio IDE.
+
+## Alguns atalhos ##
+
+Toda a edição de scripts realizada no RStudio IDE pode ser otimizada
+utilizando atalhos do teclado para algumas rotinas. Quanto menos você
+precisar do mouse mais rápida e eficientemente você programa.
+
+Todos os atalhos do RStudio podem ser visualizados no menu de navegação
+`(A)->Tools->Keyboard Shortcuts Help`, ou ainda pelo atalho
+`Alt+Shift+K`. Os atalhos indispensáveis são:
+
+ * `Alt+-`: Sinal de atribuir (`<-`);
+ * `Ctrl+r`: Executar linha/região do script;
+ * `Ctrl+i`: Indentar região; e
+ * `Ctrl+Shift+C`: Comentar linha/região.
 
 # Funções de auto ajuda #
 
