@@ -61,6 +61,10 @@ conteudos[3] <- "-------------------------------------------"
 ##-------------------------------------------
 ## DIA 20/09
 conteudos[4] <- "Conceitos da linguagem e Manipulação de objetos"
+materiais[4] <- c("[rcourse01](./rcourse01.html)")
+objetivos[4] <- paste0("Compreender os objetos em R, realizar a ",
+                       "entrada de dados e extrair estatísticas ",
+                       "simples desses dados")
 
 ##-------------------------------------------
 ## DIA 27/09

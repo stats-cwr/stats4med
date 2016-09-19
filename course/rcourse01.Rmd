@@ -1,0 +1,73 @@
+---
+title: "Conceito da linguagem e manipulação de objetos"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: true
+    code_folding: show
+---
+
+***
+
+# O software R #
+
+Como já discutido na [aula motivacional](./rcourse00.html) para o curso,
+R é uma linguagem e ambiente para computação estatística e gráfica
+disponível sob os termos da licença GNU de software livre. Criada em
+1996 por Robert Gentleman and Ross Ihaka, o R pode ser considerado um
+diferente implementação de S, a linguagem comercial desenvolvida pela
+Bell Laboratories que antecede o R.
+
+# Algoritmos e programação #
+
+# Funções de auto ajuda #
+
+# Aritmética e objetos #
+
+## Operações aritméticas ##
+
+## Operações lógicas ##
+
+## Valores especiais ##
+
+## Criando objetos ##
+
+# Tipos de objetos #
+
+## Vetores ##
+
+## Matrizes ##
+
+## Data frames ##
+
+## Listas ##
+
+## Funções ##
+
+# Pacotes em R #
+
+# Entrada de dados #
+
+## Diretamente no R ##
+
+## De arquivos externos ##
+
+# Extraindo estatísticas simples #
+
+## Familía apply ##
+
+## Bases disponíveis ##
+
+```{r, results="asis", echo=FALSE}
+
+cat(paste0(
+    "<div id='update-message'>",
+    format(Sys.time(),
+           format = "Atualizado em %d de %B de %Y."),
+    "</div>"),
+    sep = "\n")
+
+```
+
+<!--------------------------------------------- -->
