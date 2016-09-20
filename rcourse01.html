@@ -25,6 +25,49 @@
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 
 
 <style type="text/css">
@@ -146,12 +189,6 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
-<script src="site_libs/navigation-1.1/codefolding.js"></script>
-<script>
-$(document).ready(function () {
-  window.initializeCodeFolding("show" === "show");
-});
-</script>
 
 
 
@@ -306,14 +343,6 @@ div.tocify {
 
 <div class="fluid-row" id="header">
 
-<div class="btn-group pull-right">
-<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
-<ul class="dropdown-menu" style="min-width: 50px;">
-<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
-<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
-</ul>
-</div>
-
 
 
 <h1 class="title toc-ignore">Conceito da linguagem e manipulação de objetos</h1>
@@ -401,63 +430,660 @@ div.tocify {
 </ul>
 </div>
 </div>
-<div id="funcoes-de-auto-ajuda" class="section level1">
-<h1>Funções de auto ajuda</h1>
-</div>
 <div id="aritmetica-e-objetos" class="section level1">
 <h1>Aritmética e objetos</h1>
 <div id="operacoes-aritmeticas" class="section level2">
 <h2>Operações aritméticas</h2>
+<p>O R pode ser usado como calculadora, todas as operações matemáticas básicas estão disponíveis em R.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> +<span class="st"> </span><span class="dv">2</span>      <span class="co"># Soma</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">4</span> -<span class="st"> </span><span class="dv">2</span>      <span class="co"># Subtração</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">12</span> *<span class="st"> </span><span class="dv">42</span>    <span class="co"># Multiplicação</span></code></pre></div>
+<pre><code>## [1] 504</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">54</span> /<span class="st"> </span><span class="dv">30</span>    <span class="co"># Divisão</span></code></pre></div>
+<pre><code>## [1] 1.8</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span>^<span class="dv">3</span>        <span class="co"># Potência</span></code></pre></div>
+<pre><code>## [1] 125</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span>**<span class="dv">3</span>        <span class="co"># Potência</span></code></pre></div>
+<pre><code>## [1] 125</code></pre>
+<p>E claro, expressões numéricas também podem ser feitas. Respeita-se a hierárquia matemática primeiro potência &lt; multiplicação &lt; soma, porém essa ordenação pode ser contralada por parênteses.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> +<span class="st"> </span><span class="dv">2</span> *<span class="st"> </span><span class="dv">4</span> +<span class="st"> </span><span class="dv">4</span>/<span class="dv">2</span>          <span class="co"># Hierarquia matemática</span></code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> +<span class="st"> </span><span class="dv">2</span> *<span class="st"> </span>(<span class="dv">4</span> +<span class="st"> </span><span class="dv">4</span>)/<span class="dv">2</span>        <span class="co"># Primeiro a soma dos 4&#39;s</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">2</span> +<span class="st"> </span><span class="dv">2</span>) *<span class="st"> </span><span class="dv">4</span> +<span class="st"> </span><span class="dv">4</span>/<span class="dv">2</span>        <span class="co"># Primeiro a soma dos 2&#39;s</span></code></pre></div>
+<pre><code>## [1] 18</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">2</span> +<span class="st"> </span><span class="dv">2</span>) *<span class="st"> </span>(<span class="dv">4</span> +<span class="st"> </span><span class="dv">4</span>)/<span class="dv">2</span>      <span class="co"># Primeiro as somas</span></code></pre></div>
+<pre><code>## [1] 16</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">((<span class="dv">2</span> +<span class="st"> </span><span class="dv">2</span>) *<span class="st"> </span>(<span class="dv">4</span> +<span class="st"> </span><span class="dv">4</span>)/<span class="dv">2</span>)/<span class="dv">2</span>  <span class="co"># Vários parenteses</span></code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<p>Operações matematicamente incorretas ou não exatas também tem seu valor representado em R.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">0</span>/<span class="dv">0</span>       <span class="co"># Impossível, não existe (Not a Number - NaN)</span></code></pre></div>
+<pre><code>## [1] NaN</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>/<span class="dv">0</span>       <span class="co"># Indefinido, positivo de infinito (Inf)</span></code></pre></div>
+<pre><code>## [1] Inf</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">-<span class="dv">1</span>/<span class="dv">0</span>      <span class="co"># Indefinido, negativo de infinito (-Inf)</span></code></pre></div>
+<pre><code>## [1] -Inf</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">NA</span>        <span class="co"># Valor não disponível (Not Available - NA)</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
 </div>
 <div id="operacoes-logicas" class="section level2">
 <h2>Operações lógicas</h2>
-</div>
-<div id="valores-especiais" class="section level2">
-<h2>Valores especiais</h2>
+<p>As operações descritas acima são operações matemáticas simples, porém em muitas situações deseja-se realizar testes lógicos, e.g. o peso do paciente é maior de 60Kg, abaixo exemplificamos como realizar esses testes.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> ==<span class="st"> </span><span class="dv">4</span>            <span class="co"># Igualdade</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> &gt;<span class="st"> </span><span class="dv">4</span>             <span class="co"># Desigualdade (maior)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> &lt;<span class="st"> </span><span class="dv">4</span>             <span class="co"># Desigualdade (menor)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> &gt;=<span class="st"> </span><span class="dv">4</span>            <span class="co"># Desigualdade (maior igual)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> &lt;=<span class="st"> </span><span class="dv">4</span>            <span class="co"># Desigualdade (menor igual)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>E claro expressões lógicas também podem ser realizadas.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">2</span> +<span class="st"> </span><span class="dv">2</span>) &gt;=<span class="st"> </span><span class="dv">4</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">2</span> +<span class="st"> </span><span class="dv">2</span>)/<span class="dv">2</span> &lt;<span class="st"> </span><span class="dv">4</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Outro operador lógico muito útil é o de negação <code>!</code>, esse operador inverte um resultado lógico</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">!<span class="dv">2</span> ==<span class="st"> </span><span class="dv">4</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">!<span class="dv">2</span> &gt;<span class="st"> </span><span class="dv">4</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">!<span class="dv">2</span> &lt;<span class="st"> </span><span class="dv">4</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
 </div>
 <div id="criando-objetos" class="section level2">
 <h2>Criando objetos</h2>
+<p>O R é uma linguagem orientada a objetos, ou seja, objetos (valores, vetores, matrizes, listas, funções, etc.) são armazenadas em espaços de memória de seu computador, para posteriormente serem utilizados. Atribui-se algo a um objeto pelo operador <code>&lt;-</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">2</span>       <span class="co"># Atribuindo o valor 2 ao objeto x</span>
+y &lt;-<span class="st"> </span><span class="dv">4</span>       <span class="co"># Atribuindo o valor 2 ao objeto y</span>
+x +<span class="st"> </span>y</code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z &lt;-<span class="st"> </span>x *<span class="st"> </span>y   <span class="co"># Atribuindo ao z o valor da multiplicação de x por y</span>
+z</code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="dv">2</span> ==<span class="st"> </span><span class="dv">2</span>  <span class="co"># Valores lógicos também podem ser armazenados em objetos</span>
+a</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Isso mesmo, em R a atribuição é realizada de forma muito simples!</p>
 </div>
 </div>
 <div id="tipos-de-objetos" class="section level1">
 <h1>Tipos de objetos</h1>
+<p>O R tem uma gama muito grande de classes de objetos. Todo objeto possui uma classe que o define. Usuários de R devem conhecer bem as classes de seus objetos para coordenar funções apropriadas a eles.</p>
+<p>Use e abuse das funções <code>class()</code>, que exibe a classe do objeto e <code>str()</code>, que mostra sua estrutura.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Verificando a estrutura dos objetos criados</span>
+<span class="kw">str</span>(x)</code></pre></div>
+<pre><code>##  num 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(x)</code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(a)</code></pre></div>
+<pre><code>##  logi TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(a)</code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
 <div id="vetores" class="section level2">
 <h2>Vetores</h2>
+<p>O R é uma linguagem vetorial, ou seja, operações com objetos dessa classe são realizadas diretamento, sem a necessidade de loops (<code>for</code>, por exemplo).</p>
+<p>A criação de vetores é feita, em geral, com a função <code>c()</code> de combinar valores em vetores ou listas.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">12</span>)
+x</code></pre></div>
+<pre><code>## [1]  2  4  6  8 10 12</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># O que é x?</span>
+<span class="kw">str</span>(x)</code></pre></div>
+<pre><code>##  num [1:6] 2 4 6 8 10 12</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(x)</code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<p>Vetores também podem ser criados com as funções <code>rep()</code> e <code>seq()</code>, que fazem repetições e sequências respectivamente e com o operador <code>:</code> que faz a sequência de incremento 1 entre dois valores.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">6</span>
+y</code></pre></div>
+<pre><code>## [1] 1 2 3 4 5 6</code></pre>
+<p>E claro, as operações com os vetores.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x *<span class="st"> </span><span class="dv">2</span></code></pre></div>
+<pre><code>## [1]  4  8 12 16 20 24</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x /<span class="st"> </span>y</code></pre></div>
+<pre><code>## [1] 2 2 2 2 2 2</code></pre>
+<p>As operações lógicas seguem da mesma forma, todavia podemos introduzir um novo operador o <code>%in%</code>, esse é o operador “pertence”.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x ==<span class="st"> </span>y          <span class="co"># x é igual a y, elemento a elemento?</span></code></pre></div>
+<pre><code>## [1] FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> %in%<span class="st"> </span>y        <span class="co"># 2 pertence ao conjunto de y?</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x %in%<span class="st"> </span>y        <span class="co"># x pertence ao conjunto y, elemento a elemento?</span></code></pre></div>
+<pre><code>## [1]  TRUE  TRUE  TRUE FALSE FALSE FALSE</code></pre>
+<p>E a seleção de valores do vetor é feita com os operadores <code>[]</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y[<span class="dv">1</span>]           <span class="co"># Seleciona o 1º elemento</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]     <span class="co"># Seleciona o 1º e quinto elementos</span></code></pre></div>
+<pre><code>## [1] 1 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y[y &gt;<span class="st"> </span><span class="dv">3</span>]       <span class="co"># Seleciona apenas os y que são maiores que 3</span></code></pre></div>
+<pre><code>## [1] 4 5 6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y[x %in%<span class="st"> </span>y]    <span class="co"># Seleciona apenas os y que satizfazem x %in% y</span></code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
 </div>
 <div id="matrizes" class="section level2">
 <h2>Matrizes</h2>
+<p>Matrizes representam um conjunto de valores organizados em linhas e colunas. Matrizes são criadas com a função <code>matrix()</code>, onde informamos os valores que faram parte da matriz e a dimensão dessa matriz, os argumentos da função são (não se preocupe com todos os argumentos, alguns tem um valor padrão! Discutiremos funções adiante).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Argumentos da função matrix</span>
+<span class="co"># help(matrix)</span>
+<span class="kw">args</span>(<span class="st">&quot;matrix&quot;</span>)</code></pre></div>
+<pre><code>## function (data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL) 
+## NULL</code></pre>
+<p>Agora criando matrizes</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Matrizes com 10 elementos de dimensão 2x5</span>
+<span class="kw">matrix</span>(<span class="dt">data =</span> <span class="dv">1</span>:<span class="dv">10</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">5</span>)</code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    3    5    7    9
+## [2,]    2    4    6    8   10</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(<span class="dt">data =</span> <span class="dv">1</span>:<span class="dv">10</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">5</span>, <span class="dt">byrow =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    2    3    4    5
+## [2,]    6    7    8    9   10</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Matrizes com 18 elementos de dimensão 3x6</span>
+<span class="kw">matrix</span>(<span class="dt">data =</span> <span class="dv">1</span>:<span class="dv">18</span>, <span class="dt">nrow =</span> <span class="dv">3</span>)</code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]    1    4    7   10   13   16
+## [2,]    2    5    8   11   14   17
+## [3,]    3    6    9   12   15   18</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(<span class="dt">data =</span> <span class="dv">1</span>:<span class="dv">18</span>, <span class="dt">nrow =</span> <span class="dv">3</span>, <span class="dt">byrow =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]    1    2    3    4    5    6
+## [2,]    7    8    9   10   11   12
+## [3,]   13   14   15   16   17   18</code></pre>
+<p>A seleção de elementos da matriz também é feita com o operador <code>[]</code>, porém agora temos duas dimensões para seleção, as linhas e as colunas.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Matrizes com 18 elementos de dimensão 3x6</span>
+ma &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data =</span> <span class="dv">1</span>:<span class="dv">18</span>, <span class="dt">nrow =</span> <span class="dv">3</span>, <span class="dt">byrow =</span> <span class="ot">TRUE</span>)
+ma</code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]    1    2    3    4    5    6
+## [2,]    7    8    9   10   11   12
+## [3,]   13   14   15   16   17   18</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Estrutura do objeto</span>
+<span class="kw">str</span>(ma)</code></pre></div>
+<pre><code>##  int [1:3, 1:6] 1 7 13 2 8 14 3 9 15 4 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ma[<span class="dv">1</span>, <span class="dv">3</span>]       <span class="co"># Elemento da linha 1 e coluna 3</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ma[, <span class="dv">3</span>]        <span class="co"># Elementos da coluna 3 (é um vetor)</span></code></pre></div>
+<pre><code>## [1]  3  9 15</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ma[<span class="dv">1</span>, ]        <span class="co"># Elementos da linha 1 (é um vetor)</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5 6</code></pre>
+<p>O foco deste curso não será na computação. Portanto não apresentaremos as operações com matrizes mas saiba que existem, adição e multiplicação de matrizes, transposta, inversa, produto interno, traço, entre outras operações podem facilmente realizadas com funções nativas do R.</p>
 </div>
 <div id="data-frames" class="section level2">
 <h2>Data frames</h2>
+<p><code>data.frames</code> são a classe de objetos que mais utilizamos. Eles são a representação dos nossos dados em R. Podemos criar <code>data.frames</code> com a função <code>data.frame</code>. Assim como nas matrizes, veja seus argumentos e consulte o <em>help</em> da função.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Argumentos da função data.frame</span>
+<span class="co"># help(data.frame)</span>
+<span class="kw">args</span>(<span class="st">&quot;data.frame&quot;</span>)</code></pre></div>
+<pre><code>## function (..., row.names = NULL, check.rows = FALSE, check.names = TRUE, 
+##     fix.empty.names = TRUE, stringsAsFactors = default.stringsAsFactors()) 
+## NULL</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Um exemplo de data.frame</span>
+<span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="dv">1</span>:<span class="dv">6</span>, <span class="dt">y =</span> <span class="dv">11</span>:<span class="dv">16</span>, <span class="dt">z =</span> <span class="kw">rep</span>(<span class="dv">0</span>:<span class="dv">1</span>, <span class="dv">3</span>))</code></pre></div>
+<pre><code>##   x  y z
+## 1 1 11 0
+## 2 2 12 1
+## 3 3 13 0
+## 4 4 14 1
+## 5 5 15 0
+## 6 6 16 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Construindo data.frames com objetos criados</span>
+<span class="kw">data.frame</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y, <span class="dt">z =</span> x *<span class="st"> </span>y, <span class="dt">w =</span> x %in%<span class="st"> </span>y)</code></pre></div>
+<pre><code>##    x y  z     w
+## 1  2 1  2  TRUE
+## 2  4 2  8  TRUE
+## 3  6 3 18  TRUE
+## 4  8 4 32 FALSE
+## 5 10 5 50 FALSE
+## 6 12 6 72 FALSE</code></pre>
+<p>Agora que já sabemos como criar <code>data.frames</code>, criaremos um <code>data.frame</code> fictício para exemplificar a seleção de elementos de um objeto dessa classe, que pode realizada com os operadores <code>$</code> ou ainda <code>[]</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Criando dados fictícios de pacientes</span>
+da &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
+    <span class="dt">nome =</span> <span class="kw">c</span>(<span class="st">&quot;João&quot;</span>, <span class="st">&quot;Maria&quot;</span>, <span class="st">&quot;José&quot;</span>, <span class="st">&quot;Pedro&quot;</span>, <span class="st">&quot;Ana&quot;</span>, <span class="st">&quot;Carla&quot;</span>, <span class="st">&quot;Paulo&quot;</span>),
+    <span class="dt">idade =</span> <span class="kw">c</span>(<span class="dv">30</span>, <span class="dv">22</span>, <span class="dv">21</span>, <span class="dv">40</span>, <span class="dv">32</span>, <span class="dv">18</span>, <span class="dv">24</span>),
+    <span class="dt">sexo =</span> <span class="kw">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>),
+    <span class="dt">imc =</span> <span class="kw">c</span>(<span class="fl">30.98</span>, <span class="dv">37</span>, <span class="fl">42.29</span>, <span class="fl">27.59</span>, <span class="fl">21.18</span>, <span class="fl">25.23</span>, <span class="fl">8.81</span>),
+    <span class="dt">hdl =</span> <span class="kw">c</span>(<span class="fl">68.89</span>, <span class="fl">70.25</span>, <span class="fl">15.59</span>, <span class="fl">49.24</span>, <span class="fl">50.79</span>, <span class="fl">45.22</span>, <span class="fl">56.65</span>)
+)
+da</code></pre></div>
+<pre><code>##    nome idade sexo   imc   hdl
+## 1  João    30    M 30.98 68.89
+## 2 Maria    22    F 37.00 70.25
+## 3  José    21    M 42.29 15.59
+## 4 Pedro    40    M 27.59 49.24
+## 5   Ana    32    F 21.18 50.79
+## 6 Carla    18    F 25.23 45.22
+## 7 Paulo    24    M  8.81 56.65</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Estrutura dos dados</span>
+<span class="kw">str</span>(da)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    7 obs. of  5 variables:
+##  $ nome : Factor w/ 7 levels &quot;Ana&quot;,&quot;Carla&quot;,..: 3 5 4 7 1 2 6
+##  $ idade: num  30 22 21 40 32 18 24
+##  $ sexo : Factor w/ 2 levels &quot;F&quot;,&quot;M&quot;: 2 1 2 2 1 1 2
+##  $ imc  : num  31 37 42.3 27.6 21.2 ...
+##  $ hdl  : num  68.9 70.2 15.6 49.2 50.8 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">da[<span class="dv">2</span>, ]         <span class="co"># Selecionando os dados da Maria</span></code></pre></div>
+<pre><code>##    nome idade sexo imc   hdl
+## 2 Maria    22    F  37 70.25</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">da[, <span class="dv">2</span>]         <span class="co"># Selecionando as idades</span></code></pre></div>
+<pre><code>## [1] 30 22 21 40 32 18 24</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">da[, <span class="st">&quot;idade&quot;</span>]   <span class="co"># Selecionando as idades</span></code></pre></div>
+<pre><code>## [1] 30 22 21 40 32 18 24</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">da$idade        <span class="co"># Selecionando as idades</span></code></pre></div>
+<pre><code>## [1] 30 22 21 40 32 18 24</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">da[, <span class="kw">c</span>(<span class="st">&quot;imc&quot;</span>, <span class="st">&quot;hdl&quot;</span>)]   <span class="co"># Selecionando as variáveis imc e hdl</span></code></pre></div>
+<pre><code>##     imc   hdl
+## 1 30.98 68.89
+## 2 37.00 70.25
+## 3 42.29 15.59
+## 4 27.59 49.24
+## 5 21.18 50.79
+## 6 25.23 45.22
+## 7  8.81 56.65</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">da[<span class="dv">2</span>, <span class="kw">c</span>(<span class="st">&quot;imc&quot;</span>, <span class="st">&quot;hdl&quot;</span>)]   <span class="co"># Selecionando as variáveis imc e hdl da Maria</span></code></pre></div>
+<pre><code>##   imc   hdl
+## 2  37 70.25</code></pre>
+<p>Note que a seleção de elementos é bastante similar a seleção no caso das matrizes. A principal diferença entre matrizes e <code>data.frames</code> no R é que <code>data.frames</code> permitem que cada coluna possua um vetores com elementos de classes diferentes (fatores, numéricos, inteiros, caracteres, lógicos, etc.), isso não é possível em matrizes.</p>
 </div>
 <div id="listas" class="section level2">
 <h2>Listas</h2>
+<p>As listas são os objetos mais flexíveis em R, elas permitem armazenar diversos formatos em um único objeto. Listas são criadas com a função <code>list()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Lista de vetores</span>
+<span class="kw">list</span>(<span class="dt">a =</span> <span class="dv">1</span>:<span class="dv">6</span>, <span class="dt">b =</span> <span class="kw">c</span>(<span class="st">&quot;Olá&quot;</span>, <span class="st">&quot;mundo&quot;</span>), <span class="dt">c =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>))</code></pre></div>
+<pre><code>## $a
+## [1] 1 2 3 4 5 6
+## 
+## $b
+## [1] &quot;Olá&quot;   &quot;mundo&quot;
+## 
+## $c
+## [1]  TRUE FALSE FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Lista com objetos de diferentes tipos</span>
+la &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">ma =</span> ma, <span class="dt">da =</span> da, <span class="dt">x =</span> x, <span class="dt">y =</span> y)
+la</code></pre></div>
+<pre><code>## $ma
+##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]    1    2    3    4    5    6
+## [2,]    7    8    9   10   11   12
+## [3,]   13   14   15   16   17   18
+## 
+## $da
+##    nome idade sexo   imc   hdl
+## 1  João    30    M 30.98 68.89
+## 2 Maria    22    F 37.00 70.25
+## 3  José    21    M 42.29 15.59
+## 4 Pedro    40    M 27.59 49.24
+## 5   Ana    32    F 21.18 50.79
+## 6 Carla    18    F 25.23 45.22
+## 7 Paulo    24    M  8.81 56.65
+## 
+## $x
+## [1]  2  4  6  8 10 12
+## 
+## $y
+## [1] 1 2 3 4 5 6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Estrutura da lista</span>
+<span class="kw">str</span>(la)</code></pre></div>
+<pre><code>## List of 4
+##  $ ma: int [1:3, 1:6] 1 7 13 2 8 14 3 9 15 4 ...
+##  $ da:&#39;data.frame&#39;:  7 obs. of  5 variables:
+##   ..$ nome : Factor w/ 7 levels &quot;Ana&quot;,&quot;Carla&quot;,..: 3 5 4 7 1 2 6
+##   ..$ idade: num [1:7] 30 22 21 40 32 18 24
+##   ..$ sexo : Factor w/ 2 levels &quot;F&quot;,&quot;M&quot;: 2 1 2 2 1 1 2
+##   ..$ imc  : num [1:7] 31 37 42.3 27.6 21.2 ...
+##   ..$ hdl  : num [1:7] 68.9 70.2 15.6 49.2 50.8 ...
+##  $ x : num [1:6] 2 4 6 8 10 12
+##  $ y : int [1:6] 1 2 3 4 5 6</code></pre>
+<p>Note que <code>la</code> é uma lista com 4 elementos, para selecionarmos elementos dessa lista usamos o operador <code>[[]]</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">la[[<span class="dv">1</span>]]           <span class="co"># Primeiro elemento da lista</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]    1    2    3    4    5    6
+## [2,]    7    8    9   10   11   12
+## [3,]   13   14   15   16   17   18</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">la[[<span class="st">&quot;da&quot;</span>]]        <span class="co"># Elemento &#39;da&#39; da lista</span></code></pre></div>
+<pre><code>##    nome idade sexo   imc   hdl
+## 1  João    30    M 30.98 68.89
+## 2 Maria    22    F 37.00 70.25
+## 3  José    21    M 42.29 15.59
+## 4 Pedro    40    M 27.59 49.24
+## 5   Ana    32    F 21.18 50.79
+## 6 Carla    18    F 25.23 45.22
+## 7 Paulo    24    M  8.81 56.65</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">la[<span class="kw">c</span>(<span class="st">&quot;x&quot;</span>, <span class="st">&quot;y&quot;</span>)]   <span class="co"># Sub-lista com x e y</span></code></pre></div>
+<pre><code>## $x
+## [1]  2  4  6  8 10 12
+## 
+## $y
+## [1] 1 2 3 4 5 6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Agora para selecionar as idades do elemento &#39;da&#39; da lista &#39;la&#39;</span>
+la[[<span class="st">&quot;da&quot;</span>]][, <span class="st">&quot;idade&quot;</span>]</code></pre></div>
+<pre><code>## [1] 30 22 21 40 32 18 24</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># E a segunda linha do elemento &#39;ma&#39; da lista &#39;la&#39;</span>
+la[[<span class="st">&quot;ma&quot;</span>]][<span class="dv">2</span>, ]</code></pre></div>
+<pre><code>## [1]  7  8  9 10 11 12</code></pre>
 </div>
 <div id="funcoes" class="section level2">
 <h2>Funções</h2>
+<p>Uma das grandes vantagens em linguagens de programação é que podemos criar nossas próprias funções e com isso controladas toda a rotina de análise. Em R não pe diferente, podemos criar nossas próprias função, bem como utilizar as que já existem, como fizemos até agora.</p>
+<p>Funções em R são construídas com a estrutura de programação <code>function</code>. Abaixo exemplificamos como se cria uma função em R.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Função que soma 2 ao elemento</span>
+fx &lt;-<span class="st"> </span>function(a) {
+    (a +<span class="st"> </span><span class="dv">2</span>)
+}
+
+<span class="co"># O que é fx?</span>
+<span class="kw">class</span>(fx)</code></pre></div>
+<pre><code>## [1] &quot;function&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Usando a minha função</span>
+<span class="kw">fx</span>(<span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">fx</span>(<span class="dv">5</span>)</code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># fx(&quot;a&quot;) Erro</span>
+
+<span class="co"># Função com mais de um argumento</span>
+fx2 &lt;-<span class="st"> </span>function(a, b) {
+    a +<span class="st"> </span>b
+}
+
+<span class="kw">fx2</span>(<span class="dv">5</span>, <span class="dv">4</span>)</code></pre></div>
+<pre><code>## [1] 9</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">fx2</span>(<span class="dv">3</span>, <span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># fx2(3) Erro</span>
+
+<span class="co"># Função com argumento padrão (default)</span>
+fx2 &lt;-<span class="st"> </span>function(a, <span class="dt">b =</span> <span class="dv">2</span>) {
+    a +<span class="st"> </span>b
+}
+
+<span class="kw">fx2</span>(<span class="dv">5</span>)</code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">fx2</span>(<span class="dv">6</span>)</code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">fx2</span>(<span class="dv">6</span>, <span class="dv">5</span>)</code></pre></div>
+<pre><code>## [1] 11</code></pre>
+<p>E é dessa forma que são construídas as funções em R. Eventualmente precisamos escrever nossas função, porém para análises simples todas as funções já existem no R. Para utilizá-las utilize a sintaxe <code>funcao(argumentos)</code> e não dispense ler sua documentação <code>help(&quot;funcao&quot;)</code>.</p>
+<p>Abaixo mostramos algumas funções para cálculo de estatísticas básicas para o conjunto de dados fictício <code>da</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(da$hdl)          <span class="co"># média de hdl</span></code></pre></div>
+<pre><code>## [1] 50.94714</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">median</span>(da$hdl)        <span class="co"># mediana de hdl</span></code></pre></div>
+<pre><code>## [1] 50.79</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(da$hdl)           <span class="co"># variância</span></code></pre></div>
+<pre><code>## [1] 335.4893</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(da$hdl)            <span class="co"># desvio padrão</span></code></pre></div>
+<pre><code>## [1] 18.31637</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">min</span>(da$hdl)           <span class="co"># valor mínimo</span></code></pre></div>
+<pre><code>## [1] 15.59</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">max</span>(da$hdl)           <span class="co"># valor máximo</span></code></pre></div>
+<pre><code>## [1] 70.25</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">quantile</span>(da$hdl)      <span class="co"># Quantis</span></code></pre></div>
+<pre><code>##    0%   25%   50%   75%  100% 
+## 15.59 47.23 50.79 62.77 70.25</code></pre>
 </div>
 </div>
 <div id="pacotes-em-r" class="section level1">
 <h1>Pacotes em R</h1>
+<p>O R possui uma comunidade muito ativa de desenvolvedores e com sua facilidade de programação diversos pacotes de função são disponibilizados aos usuários diariamente. O principal repositório de disponibilização de pacotes é o <a href="https://cran.r-project.org/">CRAN</a> e é por lá que fazemos a instalação de pacotes adicionais.</p>
+<p>Não se preocupe em ir pro site, baixar arquivo e depois instalar. A comunidade R já resolveu isso, para instalação de pacotes do CRAN basta utilizar a função <code>install.packages()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># help(install.packages)</span>
+<span class="co"># Instalando o pacote rmarkdown, que utilizaremos ao final do curso</span>
+<span class="kw">install.packages</span>(<span class="st">&quot;rmarkdown&quot;</span>)</code></pre></div>
 </div>
 <div id="entrada-de-dados" class="section level1">
 <h1>Entrada de dados</h1>
-<div id="diretamente-no-r" class="section level2">
-<h2>Diretamente no R</h2>
-</div>
+<p>Como vimos na seção <a href="#data-frames">Data Frames</a>, nosso dados são representados em R como <code>data.frames</code> e podemos digitar cada dado de nossa eventual planilha para o R, como fizemos com o exemplo <code>da</code>. Todavia isso acaba se tornando inviável rapidamente, e surge a necessidade de entrar com dados no R via arquivos externos, é disso que tratamos na próxima seção.</p>
 <div id="de-arquivos-externos" class="section level2">
 <h2>De arquivos externos</h2>
+<p>O local mais comum para armazenamento de conjuntos de dados não tão grandes, é em planilhas eletrônicas (LibreOffice Calc, Excel, etc.), esses arquivos tem extensão <code>xlsx</code>, <code>xls</code>, <code>odt</code> entre outras, esses arquivos são arquivos binários, que são interpretador por um programa e exibem uma interface para edição. A leitura de arquivos binários em R é possível, porém recomendamos que para leitura o usuário exporte os dados de sua planilha para um formato de texto pleno (<code>.csv</code>, <code>.tsv</code>, <code>txt</code>).</p>
+<p>Para leitura de dados em texto pleno utiliza-se a função <code>read.table</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># head(read.table)</span>
+<span class="kw">args</span>(read.table)</code></pre></div>
+<pre><code>## function (file, header = FALSE, sep = &quot;&quot;, quote = &quot;\&quot;&#39;&quot;, dec = &quot;.&quot;, 
+##     numerals = c(&quot;allow.loss&quot;, &quot;warn.loss&quot;, &quot;no.loss&quot;), row.names, 
+##     col.names, as.is = !stringsAsFactors, na.strings = &quot;NA&quot;, 
+##     colClasses = NA, nrows = -1, skip = 0, check.names = TRUE, 
+##     fill = !blank.lines.skip, strip.white = FALSE, blank.lines.skip = TRUE, 
+##     comment.char = &quot;#&quot;, allowEscapes = FALSE, flush = FALSE, 
+##     stringsAsFactors = default.stringsAsFactors(), fileEncoding = &quot;&quot;, 
+##     encoding = &quot;unknown&quot;, text, skipNul = FALSE) 
+## NULL</code></pre>
+<p>Antes de utilizar essa função verifique como o arquivo está disposto, faça isso visualizando seu arquivo em um editor de texto, pode ser até no RStudio. Feito isso identifique</p>
+<ul>
+<li>Existe um cabeçalho com os nomes das colunas?<br />
+ Se sim, coloque <code>header = TRUE</code>;</li>
+<li>Qual o caracter que está separando os dados?</li>
+<li>se é uma tabulação (espaço entre valores) coloque <code>sep = &quot;\t&quot;</code>;</li>
+<li>se é uma ponto e vírgula (;) coloque <code>sep = &quot;;&quot;</code>;</li>
+<li>se é uma vírgula (;) coloque <code>sep = &quot;,&quot;</code>;</li>
+<li>se outro caracter coloque <code>sep = &quot;outro caracter&quot;</code></li>
+<li>Qual o separador decimal utilizado?</li>
+<li>se é ponto, padrão americano coloque <code>dec = &quot;.&quot;</code></li>
+<li>se é vírgula, padrão brasileiro coloque <code>dec = &quot;,&quot;</code></li>
+<li>Existe nomes que contém aspas?</li>
+<li>se sim, coloque <code>quote = &quot;&quot;</code></li>
+</ul>
+<p>Estes são os principais argumentos da função, caso a leitura for incorreta procure identiicar o erro visualizando o arquivo e investigando os demais argumentos.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># LER UMA BASE DE DADOS CSV</span>
+dados &lt;-<span class="st"> </span>iris
+<span class="kw">str</span>(dados)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    150 obs. of  5 variables:
+##  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
+##  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
+##  $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
+##  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
+##  $ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+<p>Para dados de texto pleno a principal função é a <code>read.table</code>, todavia podemos procurar por outras funções de leitura.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Funções que contém &#39;read&#39; no nome</span>
+<span class="kw">apropos</span>(<span class="st">&quot;read&quot;</span>)</code></pre></div>
+<pre><code>##  [1] &quot;.readRDS&quot;         &quot;read_chunk&quot;       &quot;read_demo&quot;       
+##  [4] &quot;read_rforge&quot;      &quot;read.csv&quot;         &quot;read.csv2&quot;       
+##  [7] &quot;read.dcf&quot;         &quot;read.delim&quot;       &quot;read.delim2&quot;     
+## [10] &quot;read.DIF&quot;         &quot;read.fortran&quot;     &quot;read.ftable&quot;     
+## [13] &quot;read.fwf&quot;         &quot;read.socket&quot;      &quot;read.table&quot;      
+## [16] &quot;readBin&quot;          &quot;readChar&quot;         &quot;readCitationFile&quot;
+## [19] &quot;readline&quot;         &quot;readLines&quot;        &quot;readRDS&quot;         
+## [22] &quot;readRenviron&quot;     &quot;Sys.readlink&quot;</code></pre>
 </div>
 </div>
 <div id="extraindo-estatisticas-simples" class="section level1">
 <h1>Extraindo estatísticas simples</h1>
+<p>Agora que já sabemos ler corretamente um conjunto de dados, selecionar diversos objetos e coordenar funções no R, podemos juntar todo esse conhecimento para extrair estatísticas simples da base de dados que acabamos de ler.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Resumo dos dados</span>
+<span class="kw">summary</span>(dados)</code></pre></div>
+<pre><code>##   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+##  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
+##  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
+##  Median :5.800   Median :3.000   Median :4.350   Median :1.300  
+##  Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  
+##  3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  
+##  Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  
+##        Species  
+##  setosa    :50  
+##  versicolor:50  
+##  virginica :50  
+##                 
+##                 
+## </code></pre>
 <div id="familia-apply" class="section level2">
 <h2>Familía apply</h2>
+<p>Em R existe uma família de função que usufruem da vantagem do R ser uma linguagem vetorial, as funções <code>apply</code>. Essas funções aplicam alguma função a um conjunto predefinido em algum objeto, e.g. calcular a média de idade das mulheres no conjunto de dados fictícios <code>da</code>.</p>
+<p>São diversas as funções da família <code>apply</code>, abaixo temos uma lista mais que completa.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Funções que terminam em apply</span>
+<span class="kw">apropos</span>(<span class="st">&quot;apply$&quot;</span>)</code></pre></div>
+<pre><code>##  [1] &quot;.mapply&quot;      &quot;apply&quot;        &quot;dendrapply&quot;   &quot;eapply&quot;      
+##  [5] &quot;grid.DLapply&quot; &quot;kernapply&quot;    &quot;lapply&quot;       &quot;mapply&quot;      
+##  [9] &quot;rapply&quot;       &quot;sapply&quot;       &quot;tapply&quot;       &quot;vapply&quot;</code></pre>
+<p>Aqui utilizaremos somente as funções:</p>
+<ul>
+<li><code>apply()</code>: opera em matrizes e data.frames.</li>
+<li><code>lapply()</code>: opera em vetores e listas (data.frame também é uma lista).</li>
+<li><code>sapply()</code>: idem à <code>lapply</code> mas simplifica quando possível.</li>
+<li><code>tapply()</code>: um vetor reposta em função de (combinação de) estratos.</li>
+</ul>
+<p>Para exemplificar a utilização dessas funções voltemos ao conjunto de daods <code>da</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Estrutura dos dados</span>
+<span class="kw">str</span>(da)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    7 obs. of  5 variables:
+##  $ nome : Factor w/ 7 levels &quot;Ana&quot;,&quot;Carla&quot;,..: 3 5 4 7 1 2 6
+##  $ idade: num  30 22 21 40 32 18 24
+##  $ sexo : Factor w/ 2 levels &quot;F&quot;,&quot;M&quot;: 2 1 2 2 1 1 2
+##  $ imc  : num  31 37 42.3 27.6 21.2 ...
+##  $ hdl  : num  68.9 70.2 15.6 49.2 50.8 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Médias de idade, imc e hdl</span>
+<span class="kw">apply</span>(<span class="dt">X =</span> da[, <span class="kw">c</span>(<span class="st">&quot;idade&quot;</span>, <span class="st">&quot;imc&quot;</span>, <span class="st">&quot;hdl&quot;</span>)], <span class="dt">MARGIN =</span> <span class="dv">2</span>, <span class="dt">FUN =</span> mean)</code></pre></div>
+<pre><code>##    idade      imc      hdl 
+## 26.71429 27.58286 50.94714</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Mínino, 1 quartil, mediana, média, 3º quartil e máximo</span>
+<span class="kw">apply</span>(<span class="dt">X =</span> da[, <span class="kw">c</span>(<span class="st">&quot;idade&quot;</span>, <span class="st">&quot;imc&quot;</span>, <span class="st">&quot;hdl&quot;</span>)], <span class="dt">MARGIN =</span> <span class="dv">2</span>, <span class="dt">FUN =</span> summary)</code></pre></div>
+<pre><code>##         idade   imc   hdl
+## Min.    18.00  8.81 15.59
+## 1st Qu. 21.50 23.20 47.23
+## Median  24.00 27.59 50.79
+## Mean    26.71 27.58 50.95
+## 3rd Qu. 31.00 33.99 62.77
+## Max.    40.00 42.29 70.25</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Mínino, 1 quartil, mediana, média, 3º quartil e máximo</span>
+<span class="kw">lapply</span>(<span class="dt">X =</span> da[, <span class="kw">c</span>(<span class="st">&quot;idade&quot;</span>, <span class="st">&quot;imc&quot;</span>, <span class="st">&quot;hdl&quot;</span>)], <span class="dt">FUN =</span> summary)</code></pre></div>
+<pre><code>## $idade
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   18.00   21.50   24.00   26.71   31.00   40.00 
+## 
+## $imc
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    8.81   23.20   27.59   27.58   33.99   42.29 
+## 
+## $hdl
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   15.59   47.23   50.79   50.95   62.77   70.25</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Mínino, 1 quartil, mediana, média, 3º quartil e máximo</span>
+<span class="kw">sapply</span>(<span class="dt">X =</span> da[, <span class="kw">c</span>(<span class="st">&quot;idade&quot;</span>, <span class="st">&quot;imc&quot;</span>, <span class="st">&quot;hdl&quot;</span>)], <span class="dt">FUN =</span> summary)</code></pre></div>
+<pre><code>##         idade   imc   hdl
+## Min.    18.00  8.81 15.59
+## 1st Qu. 21.50 23.20 47.23
+## Median  24.00 27.59 50.79
+## Mean    26.71 27.58 50.95
+## 3rd Qu. 31.00 33.99 62.77
+## Max.    40.00 42.29 70.25</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#-------------------------------------------</span>
+<span class="co"># Agora médias estratificadas por sexo</span>
+<span class="kw">tapply</span>(<span class="dt">X =</span> da[, <span class="st">&quot;idade&quot;</span>], <span class="dt">INDEX =</span> da[, <span class="st">&quot;sexo&quot;</span>], <span class="dt">FUN =</span> mean)</code></pre></div>
+<pre><code>##     F     M 
+## 24.00 28.75</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tapply</span>(<span class="dt">X =</span> da[, <span class="st">&quot;imc&quot;</span>], <span class="dt">INDEX =</span> da[, <span class="st">&quot;sexo&quot;</span>], <span class="dt">FUN =</span> mean)</code></pre></div>
+<pre><code>##        F        M 
+## 27.80333 27.41750</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tapply</span>(<span class="dt">X =</span> da[, <span class="st">&quot;hdl&quot;</span>], <span class="dt">INDEX =</span> da[, <span class="st">&quot;sexo&quot;</span>], <span class="dt">FUN =</span> mean)</code></pre></div>
+<pre><code>##       F       M 
+## 55.4200 47.5925</code></pre>
 </div>
+</div>
+<div id="para-treinar" class="section level1">
+<h1>Para treinar</h1>
 <div id="bases-disponiveis" class="section level2">
 <h2>Bases disponíveis</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Lista de conjuntos de dados para exercício</span>
+<span class="kw">ls</span>(<span class="st">&quot;package:datasets&quot;</span>)</code></pre></div>
+<pre><code>##   [1] &quot;ability.cov&quot;           &quot;airmiles&quot;             
+##   [3] &quot;AirPassengers&quot;         &quot;airquality&quot;           
+##   [5] &quot;anscombe&quot;              &quot;attenu&quot;               
+##   [7] &quot;attitude&quot;              &quot;austres&quot;              
+##   [9] &quot;beaver1&quot;               &quot;beaver2&quot;              
+##  [11] &quot;BJsales&quot;               &quot;BJsales.lead&quot;         
+##  [13] &quot;BOD&quot;                   &quot;cars&quot;                 
+##  [15] &quot;ChickWeight&quot;           &quot;chickwts&quot;             
+##  [17] &quot;co2&quot;                   &quot;CO2&quot;                  
+##  [19] &quot;crimtab&quot;               &quot;discoveries&quot;          
+##  [21] &quot;DNase&quot;                 &quot;esoph&quot;                
+##  [23] &quot;euro&quot;                  &quot;euro.cross&quot;           
+##  [25] &quot;eurodist&quot;              &quot;EuStockMarkets&quot;       
+##  [27] &quot;faithful&quot;              &quot;fdeaths&quot;              
+##  [29] &quot;Formaldehyde&quot;          &quot;freeny&quot;               
+##  [31] &quot;freeny.x&quot;              &quot;freeny.y&quot;             
+##  [33] &quot;HairEyeColor&quot;          &quot;Harman23.cor&quot;         
+##  [35] &quot;Harman74.cor&quot;          &quot;Indometh&quot;             
+##  [37] &quot;infert&quot;                &quot;InsectSprays&quot;         
+##  [39] &quot;iris&quot;                  &quot;iris3&quot;                
+##  [41] &quot;islands&quot;               &quot;JohnsonJohnson&quot;       
+##  [43] &quot;LakeHuron&quot;             &quot;ldeaths&quot;              
+##  [45] &quot;lh&quot;                    &quot;LifeCycleSavings&quot;     
+##  [47] &quot;Loblolly&quot;              &quot;longley&quot;              
+##  [49] &quot;lynx&quot;                  &quot;mdeaths&quot;              
+##  [51] &quot;morley&quot;                &quot;mtcars&quot;               
+##  [53] &quot;nhtemp&quot;                &quot;Nile&quot;                 
+##  [55] &quot;nottem&quot;                &quot;npk&quot;                  
+##  [57] &quot;occupationalStatus&quot;    &quot;Orange&quot;               
+##  [59] &quot;OrchardSprays&quot;         &quot;PlantGrowth&quot;          
+##  [61] &quot;precip&quot;                &quot;presidents&quot;           
+##  [63] &quot;pressure&quot;              &quot;Puromycin&quot;            
+##  [65] &quot;quakes&quot;                &quot;randu&quot;                
+##  [67] &quot;rivers&quot;                &quot;rock&quot;                 
+##  [69] &quot;Seatbelts&quot;             &quot;sleep&quot;                
+##  [71] &quot;stack.loss&quot;            &quot;stack.x&quot;              
+##  [73] &quot;stackloss&quot;             &quot;state.abb&quot;            
+##  [75] &quot;state.area&quot;            &quot;state.center&quot;         
+##  [77] &quot;state.division&quot;        &quot;state.name&quot;           
+##  [79] &quot;state.region&quot;          &quot;state.x77&quot;            
+##  [81] &quot;sunspot.month&quot;         &quot;sunspot.year&quot;         
+##  [83] &quot;sunspots&quot;              &quot;swiss&quot;                
+##  [85] &quot;Theoph&quot;                &quot;Titanic&quot;              
+##  [87] &quot;ToothGrowth&quot;           &quot;treering&quot;             
+##  [89] &quot;trees&quot;                 &quot;UCBAdmissions&quot;        
+##  [91] &quot;UKDriverDeaths&quot;        &quot;UKgas&quot;                
+##  [93] &quot;USAccDeaths&quot;           &quot;USArrests&quot;            
+##  [95] &quot;UScitiesD&quot;             &quot;USJudgeRatings&quot;       
+##  [97] &quot;USPersonalExpenditure&quot; &quot;uspop&quot;                
+##  [99] &quot;VADeaths&quot;              &quot;volcano&quot;              
+## [101] &quot;warpbreaks&quot;            &quot;women&quot;                
+## [103] &quot;WorldPhones&quot;           &quot;WWWusage&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Para usá-los faça</span>
+<span class="kw">data</span>(<span class="st">&quot;dado&quot;</span>)
+<span class="kw">help</span>(<span class="st">&quot;dado&quot;</span>)</code></pre></div>
+</div>
+<div id="funcoes-de-auto-ajuda" class="section level2">
+<h2>Funções de auto ajuda</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Procura todas as funções com &quot;help&quot;</span>
+<span class="kw">apropos</span>(<span class="st">&quot;help&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;help&quot;         &quot;help.request&quot; &quot;help.search&quot;  &quot;help.start&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Ajudas genéricas</span>
+<span class="kw">help.start</span>()
+<span class="kw">help.search</span>(<span class="st">&quot;survival&quot;</span>)
+
+<span class="co"># Ajudas expecíficas</span>
+<span class="kw">help</span>(mean)
+<span class="kw">example</span>(<span class="st">&quot;mean&quot;</span>)
+
+<span class="co"># Procura no site do R</span>
+<span class="kw">RSiteSearch</span>(<span class="st">&quot;t.test&quot;</span>)</code></pre></div>
+</div>
+<div id="informacoes-da-sessao" class="section level2">
+<h2>Informações da sessão</h2>
+<pre><code>## R version 3.3.1 (2016-06-21)
+## Platform: x86_64-pc-linux-gnu (64-bit)
+## Running under: Ubuntu precise (12.04.5 LTS)
+## 
+## locale:
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+## 
+## attached base packages:
+## [1] grid      stats     graphics  grDevices utils     datasets  base     
+## 
+## other attached packages:
+## [1] gridExtra_2.2.1 ggplot2_2.1.0   knitr_1.14     
+## 
+## loaded via a namespace (and not attached):
+##  [1] Rcpp_0.12.7      revealjs_0.7     digest_0.6.10    plyr_1.8.4      
+##  [5] gtable_0.2.0     formatR_1.4      magrittr_1.5     evaluate_0.9    
+##  [9] scales_0.4.0     highr_0.6        stringi_1.1.1    rmarkdown_1.0   
+## [13] labeling_0.3     tools_3.3.1      stringr_1.1.0    munsell_0.4.3   
+## [17] yaml_2.1.13      colorspace_1.2-6 htmltools_0.3.5  methods_3.3.1</code></pre>
 <div id="update-message">
-Atualizado em 19 de September de 2016.
+Atualizado em 20 de September de 2016.
 </div>
 <!--------------------------------------------- -->
 </div>
