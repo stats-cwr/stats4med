@@ -32,7 +32,7 @@ gráfica, porém listamos apenas alguns abaixo:
  * Simples construção e disponibilização de pacotes com funções
    específicas, via CRAN (Comprehensive R Archive Network)
 
-Explore o sítio o projeto R e o espelho c3sl UFPR da rede global de
+Explore o sítio do projeto R e o espelho c3sl UFPR da rede global de
 arquivos R.
 
  * **Projeto R** (<https://www.r-project.org/>);
@@ -262,6 +262,12 @@ class(x)
 
 str(a)
 class(a)
+
+# Classes comuns no R
+"string"; class("string")  # character
+100L; class(100L)          # integer
+100; class(100)            # numeric
+TRUE; class(TRUE)          # logical
 
 ```
 
@@ -612,15 +618,60 @@ no RStudio. Feito isso identifique
 
 Estes são os principais argumentos da função, caso a leitura for
 incorreta procure identiicar o erro visualizando o arquivo e
-investigando os demais argumentos.
+investigando os demais argumentos. Faremos o exercício de leitura de
+dados com o exemplo real de dados de médicos residentes por município,
+os dados estão disponíveis para download em
+[medicos.csv](./data/medicos.csv).
 
 ```{r}
 
-# LER UMA BASE DE DADOS CSV
-dados <- iris
+# Lendo os dados sobre médicos residentes
+# Baixado do sítio <http://www.ipeadata.gov.br/>
+# Baixe em <stats-cwr.github.io/stats4med/data/medicos.csv>
+
+# Primeiro veja como o arquivo está disposto (abra o csv em um bloco de
+# notas ou no RStudio). Aqui veremos sua estutura com a função readLines
+head(readLines("./data/medicos.csv"), 10)
+
+```
+
+Note que a primeira linha tem apenas um título para o arquivo e não
+pertence ao conjunto de dados, portanto devemos pular a 1º linha. Na
+segunda linha temos um cabeçalho que representa as caracteriticas que
+foram observadas em cada município. Os dados estão separados por ponto e
+vírgula `;`. O separador decimal é do padrão brasileiro com vírgula
+`,`. E temos nomes de cidades que utilizam apóstofro `'`. Com base
+nessas informações a leitura dos dados será
+
+```{r}
+
+# Lendo os dados
+dados <- read.table(
+    "./data/medicos.csv",   # o caminho para o .csv
+    header = TRUE,          # tem cabeçalho
+    sep = ";",              # Separador ;
+    dec = ",",              # Decimais com ,
+    quote = "",             # Nada define caracteres no .csv
+    skip = 1                # Pula a primeira linha
+    )
+
+# Verificando se a leitura foi correta
+str(dados)
+
+# Podemos excluir a última coluna, pois essa só foi adicionada porque as
+# linhas terminam em ;
+dados <- dados[, -6]
+
+# Podemos renomear as colunas para facilitar a manipulação
+colnames(dados) <- c("estado", "codigo", "municipio", "med1", "med2")
+
+# Verificando novamente a estrutura
 str(dados)
 
 ```
+
+E assim temos o conjunto de dados `medicos.csv` devidamente disponível
+no R.
 
 Para dados de texto pleno a principal função é a `read.table`, todavia
 podemos procurar por outras funções de leitura.
@@ -672,30 +723,33 @@ Aqui utilizaremos somente as funções:
 * `tapply()`: um vetor reposta em função de (combinação de) estratos.
 
 Para exemplificar a utilização dessas funções voltemos ao conjunto de
-daods `da`.
+dados `dados`. Lembre-se que esse conjunto de dados contém `NA's`,
+portanto deve-se retirá-los, faremos isso com argumentos das funções (o
+`na.rm`), mas pode-se retirar da base com `na.omit` ou `na.exclude`.
 
 ```{r}
 
-# Estrutura dos dados
-str(da)
+# Escolhe as variáveis de interesse
+vars <- c("med1", "med2")
 
 # Médias de idade, imc e hdl
-apply(X = da[, c("idade", "imc", "hdl")], MARGIN = 2, FUN = mean)
+apply(X = dados[, vars], MARGIN = 2, FUN = mean, na.rm = TRUE)
 
 # Mínino, 1 quartil, mediana, média, 3º quartil e máximo
-apply(X = da[, c("idade", "imc", "hdl")], MARGIN = 2, FUN = summary)
+apply(X = dados[, vars], MARGIN = 2, FUN = summary)
 
 # Mínino, 1 quartil, mediana, média, 3º quartil e máximo
-lapply(X = da[, c("idade", "imc", "hdl")], FUN = summary)
+lapply(X = dados[, vars], FUN = summary)
 
 # Mínino, 1 quartil, mediana, média, 3º quartil e máximo
-sapply(X = da[, c("idade", "imc", "hdl")], FUN = summary)
+sapply(X = dados[, vars], FUN = summary)
 
 #-------------------------------------------
 # Agora médias estratificadas por sexo
-tapply(X = da[, "idade"], INDEX = da[, "sexo"], FUN = mean)
-tapply(X = da[, "imc"], INDEX = da[, "sexo"], FUN = mean)
-tapply(X = da[, "hdl"], INDEX = da[, "sexo"], FUN = mean)
+tapply(X = dados[, "med1"], INDEX = dados[, "estado"],
+       FUN = mean, na.rm = TRUE)
+tapply(X = dados[, "med2"], INDEX = dados[, "estado"],
+       FUN = mean, na.rm = TRUE)
 
 ```
 
