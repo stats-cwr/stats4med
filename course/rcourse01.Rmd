@@ -652,7 +652,8 @@ dados <- read.table(
     sep = ";",              # Separador ;
     dec = ",",              # Decimais com ,
     quote = "",             # Nada define caracteres no .csv
-    skip = 1                # Pula a primeira linha
+    skip = 1,               # Pula a primeira linha
+    encoding = "UTF-8"     # Codificação de caracteres uft-8
     )
 
 # Verificando se a leitura foi correta
