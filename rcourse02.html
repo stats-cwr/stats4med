@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Conceito da linguagem e manipulação de objetos</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="_style.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 54px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 59px;
+  margin-top: -59px;
+}
+
+.section h2 {
+  padding-top: 59px;
+  margin-top: -59px;
+}
+.section h3 {
+  padding-top: 59px;
+  margin-top: -59px;
+}
+.section h4 {
+  padding-top: 59px;
+  margin-top: -59px;
+}
+.section h5 {
+  padding-top: 59px;
+  margin-top: -59px;
+}
+.section h6 {
+  padding-top: 59px;
+  margin-top: -59px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.9em;
+  padding-left: 5px;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Statistics for Medicine</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="rcourse.html">R course</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Seminars
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="seminars/como_montar_meu_dataset.pdf">Como montar meu dataset</a>
+    </li>
+    <li>
+      <a href="seminars/modelo_COM_Poisson_e_extensoes.pdf">Extensões e Aplicações dos Modelos COM-Poisson</a>
+    </li>
+    <li>
+      <a href="seminars/modelos_multiestados.pdf">Modelos Multiestados</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="https://github.com/stats-cwr/stats4med">
+    <span class="fa fa-github-alt fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Conceito da linguagem e manipulação de objetos</h1>
+
+</div>
+
+
+<hr />
+<ul>
+<li>Download do arquivo R - <a href="./rcourse02.R">rcourse02.R</a></li>
+</ul>
+<div id="visualizacao-de-dados" class="section level1">
+<h1>Visualização de dados</h1>
+<ul>
+<li><a href="http://www.statmethods.net/graphs/" class="uri">http://www.statmethods.net/graphs/</a></li>
+<li><a href="http://www.r-graph-gallery.com/" class="uri">http://www.r-graph-gallery.com/</a></li>
+</ul>
+</div>
+<div id="como-construir-graficos" class="section level1">
+<h1>Como construir gráficos</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Algumas funções para construir gráficos em R</span>
+<span class="kw">apropos</span>(<span class="st">&quot;plot$&quot;</span>)</code></pre></div>
+<pre><code>##  [1] &quot;assocplot&quot;        &quot;autoplot&quot;         &quot;barplot&quot;         
+##  [4] &quot;benchplot&quot;        &quot;biplot&quot;           &quot;boxplot&quot;         
+##  [7] &quot;cdplot&quot;           &quot;coplot&quot;           &quot;draw_key_boxplot&quot;
+## [10] &quot;draw_key_dotplot&quot; &quot;fourfoldplot&quot;     &quot;geom_boxplot&quot;    
+## [13] &quot;geom_dotplot&quot;     &quot;GeomBoxplot&quot;      &quot;GeomDotplot&quot;     
+## [16] &quot;ggplot&quot;           &quot;interaction.plot&quot; &quot;is.ggplot&quot;       
+## [19] &quot;lag.plot&quot;         &quot;last_plot&quot;        &quot;matplot&quot;         
+## [22] &quot;monthplot&quot;        &quot;mosaicplot&quot;       &quot;plot&quot;            
+## [25] &quot;preplot&quot;          &quot;qplot&quot;            &quot;qqplot&quot;          
+## [28] &quot;quickplot&quot;        &quot;recordPlot&quot;       &quot;replayPlot&quot;      
+## [31] &quot;savePlot&quot;         &quot;screeplot&quot;        &quot;spineplot&quot;       
+## [34] &quot;stat_boxplot&quot;     &quot;StatBoxplot&quot;      &quot;sunflowerplot&quot;   
+## [37] &quot;termplot&quot;         &quot;ts.plot&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apropos</span>(<span class="st">&quot;chart$&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;dotchart&quot;   &quot;stripchart&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Parâmetros gráficos do pacote graphics</span>
+<span class="kw">help</span>(par)
+
+<span class="co"># Uma demostração (impressione-se)</span>
+<span class="kw">demo</span>(graphics)</code></pre></div>
+<div id="o-conjunto-de-dados" class="section level2">
+<h2>O conjunto de dados</h2>
+<p>Para ilustrar o emprego da análise descritiva gráficos será utilizado o conjunto de dados visto na aula anterior, que diz respeito a proporção de médicos residentes por município do Brasil nos anos de 1991 e 2000 (veja a descrição dos dados no <a href="http://www.ipeadata.gov.br/">ipeadata</a>). Abaixo carregamos o conjunto no R e verificamos sua estrutura.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Lendo os dados</span>
+dados &lt;-<span class="st"> </span><span class="kw">read.table</span>(
+    <span class="st">&quot;./data/medicos.csv&quot;</span>,   <span class="co"># o caminho para o .csv</span>
+    <span class="dt">header =</span> <span class="ot">TRUE</span>,          <span class="co"># tem cabeçalho</span>
+    <span class="dt">sep =</span> <span class="st">&quot;;&quot;</span>,              <span class="co"># Separador ;</span>
+    <span class="dt">dec =</span> <span class="st">&quot;,&quot;</span>,              <span class="co"># Decimais com ,</span>
+    <span class="dt">quote =</span> <span class="st">&quot;&quot;</span>,             <span class="co"># Nada define caracteres no .csv</span>
+    <span class="dt">skip =</span> <span class="dv">1</span>,               <span class="co"># Pula a primeira linha</span>
+    <span class="dt">encoding =</span> <span class="st">&quot;UTF-8&quot;</span>      <span class="co"># Codificação de caracteres uft-8</span>
+)
+<span class="co"># Ajustes da leitura</span>
+dados &lt;-<span class="st"> </span>dados[, <span class="kw">c</span>(-<span class="dv">2</span>, -<span class="dv">6</span>)]
+<span class="kw">colnames</span>(dados) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;estado&quot;</span>, <span class="st">&quot;municipio&quot;</span>, <span class="st">&quot;med1&quot;</span>, <span class="st">&quot;med2&quot;</span>)
+
+<span class="co"># Verificando a estrutura</span>
+<span class="kw">str</span>(dados)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    5596 obs. of  4 variables:
+##  $ estado   : Factor w/ 27 levels &quot;AC&quot;,&quot;AL&quot;,&quot;AM&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ municipio: Factor w/ 5315 levels &quot;Abadia de Goiás&quot;,..: 27 396 709 751 1022 1414 1603 1678 2499 2769 ...
+##  $ med1     : num  0 0 0 0 0 0.156 0 0 0 0 ...
+##  $ med2     : num  0 0 0.506 0 0 0.528 0 0 0 0 ...</code></pre>
+</div>
+<div id="variaveis-qualitativas-univariada" class="section level2">
+<h2>Variáveis qualitativas (univariada)</h2>
+<p>Neste conjunto de dados temos duas variáveis qualitativas (<code>estado</code> e <code>municipio</code>). A representação gráfica dessas variáveis é essencialmente com base em tabelas de frequências.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Tabela de frequências por estado (número de municípios em cada estado)</span>
+xt_estado &lt;-<span class="st"> </span><span class="kw">table</span>(dados$estado)
+xt_estado</code></pre></div>
+<pre><code>## 
+##  AC  AL  AM  AP  BA  CE  DF  ES  GO  MA  MG  MS  MT  PA  PB  PE  PI  PR 
+##  22 102  62  16 421 188   1  80 246 217 853  79 142 146 223 188 224 403 
+##  RJ  RN  RO  RR  RS  SC  SE  SP  TO 
+##  94 167  52  15 499 296  75 646 139</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Gráfico de barras</span>
+<span class="kw">barplot</span>(xt_estado)
+
+<span class="co"># Gráfico de setores</span>
+<span class="kw">pie</span>(xt_estado)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Customizando o gráfico de barras</span>
+val &lt;-<span class="st"> </span><span class="kw">sort</span>(xt_estado)
+bp &lt;-<span class="st"> </span><span class="kw">barplot</span>(val,
+              <span class="dt">horiz =</span> <span class="ot">TRUE</span>,
+              <span class="dt">col =</span> <span class="st">&quot;darkturquoise&quot;</span>,
+              <span class="dt">las =</span> <span class="dv">1</span>,
+              <span class="dt">xlim =</span> <span class="kw">extendrange</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(val))))
+<span class="kw">grid</span>(<span class="dt">ny =</span> <span class="dv">0</span>, <span class="dt">col =</span> <span class="st">&quot;gray70&quot;</span>, <span class="dt">lty =</span> <span class="dv">2</span>)
+<span class="kw">text</span>(<span class="dt">x =</span> val, <span class="dt">y =</span> bp, <span class="dt">labels =</span> val, <span class="dt">adj =</span> <span class="dv">0</span>)
+<span class="kw">title</span>(<span class="dt">main =</span> <span class="st">&quot;Frequência de municípios no Brasil nos anos de 1991 e 2000&quot;</span>,
+      <span class="dt">xlab =</span> <span class="st">&quot;Número de municípios&quot;</span>,
+      <span class="dt">ylab =</span> <span class="st">&quot;Estado da federação&quot;</span>)</code></pre></div>
+<p><img src="rcourse02_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="variaveis-quantitativas-univariada" class="section level2">
+<h2>Variáveis quantitativas (univariada)</h2>
+<p>Aqui a única variável quantitativa que temos é a proporção de médidos, qu está disposta em duas colunas que representam os anos de 1991 (<code>med1</code>) e 2000 (<code>med2</code>). A construção de gráficos para variáveis quantitativas é muito maior, pois há mais informação nessas variáveis.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Há municípios cujo não temos os valores da proporção de médios em</span>
+<span class="co"># alguns dos anos de avaliação, esses casos serão descartados para</span>
+<span class="co"># construção dos gráficos</span>
+dados &lt;-<span class="st"> </span><span class="kw">na.omit</span>(dados)
+
+<span class="kw">str</span>(dados)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    5507 obs. of  4 variables:
+##  $ estado   : Factor w/ 27 levels &quot;AC&quot;,&quot;AL&quot;,&quot;AM&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ municipio: Factor w/ 5315 levels &quot;Abadia de Goiás&quot;,..: 27 396 709 751 1022 1414 1603 1678 2499 2769 ...
+##  $ med1     : num  0 0 0 0 0 0.156 0 0 0 0 ...
+##  $ med2     : num  0 0 0.506 0 0 0.528 0 0 0 0 ...
+##  - attr(*, &quot;na.action&quot;)=Class &#39;omit&#39;  Named int [1:89] 63 243 437 620 621 622 623 758 809 810 ...
+##   .. ..- attr(*, &quot;names&quot;)= chr [1:89] &quot;63&quot; &quot;243&quot; &quot;437&quot; &quot;620&quot; ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Histograma</span>
+<span class="kw">hist</span>(dados$med1)
+<span class="kw">hist</span>(dados$med2)
+
+<span class="co"># Densidade</span>
+<span class="kw">plot</span>(<span class="kw">density</span>(dados$med1))
+<span class="kw">plot</span>(<span class="kw">density</span>(dados$med2))
+
+<span class="co"># Boxplot</span>
+<span class="kw">boxplot</span>(dados$med1)
+<span class="kw">boxplot</span>(dados$med2)
+
+<span class="co"># Traço dos valores (inútil neste exemplo)</span>
+<span class="kw">plot</span>(dados$med1)
+<span class="kw">plot</span>(dados$med2)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Somente as observações com algum médico residente</span>
+tmed1 &lt;-<span class="st"> </span>dados$med1[dados$med1 &gt;<span class="st"> </span><span class="dv">0</span>]
+tmed2 &lt;-<span class="st"> </span>dados$med1[dados$med2 &gt;<span class="st"> </span><span class="dv">0</span>]
+
+##----------------------------------------------------------------------
+## Um histograma mais elaborado
+
+<span class="co"># Estimando a densidade</span>
+dens1 &lt;-<span class="st"> </span><span class="kw">density</span>(tmed1)
+dens2 &lt;-<span class="st"> </span><span class="kw">density</span>(tmed2)
+
+<span class="co"># Cores para os gráficos</span>
+col1 &lt;-<span class="st"> </span><span class="kw">rgb</span>(<span class="fl">0.4</span>, <span class="fl">0.4</span>, <span class="dv">1</span>)
+col2 &lt;-<span class="st"> </span><span class="kw">rgb</span>(<span class="dv">1</span>, <span class="fl">0.4</span>, <span class="fl">0.4</span>)
+
+<span class="co"># Exibindo graficamente</span>
+<span class="kw">hist</span>(tmed1,
+     <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(<span class="kw">c</span>(dens1$y, dens2$y))),
+     <span class="dt">probability =</span> <span class="ot">TRUE</span>,
+     <span class="dt">col =</span> <span class="kw">rgb</span>(<span class="fl">0.4</span>, <span class="fl">0.4</span>, <span class="dv">1</span>, <span class="fl">0.5</span>),
+     <span class="dt">border =</span> <span class="st">&quot;white&quot;</span>,
+     <span class="dt">xlab =</span> <span class="st">&quot;Proporção de médicos residentes&quot;</span>,
+     <span class="dt">ylab =</span> <span class="st">&quot;Densidade&quot;</span>,
+     <span class="dt">main =</span> <span class="st">&quot;Comportamento da proporção de médicos residentes&quot;</span>)
+<span class="kw">hist</span>(tmed2,
+     <span class="dt">probability =</span> <span class="ot">TRUE</span>,
+     <span class="dt">add =</span> <span class="ot">TRUE</span>,
+     <span class="dt">col =</span> <span class="kw">rgb</span>(<span class="dv">1</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>),
+     <span class="dt">border =</span> <span class="st">&quot;white&quot;</span>)
+<span class="kw">box</span>()
+<span class="kw">grid</span>()
+
+<span class="co"># Incluindo as curvas de densidade</span>
+<span class="kw">lines</span>(dens1, <span class="dt">col =</span> col1, <span class="dt">lwd =</span> <span class="dv">2</span>)
+<span class="kw">lines</span>(dens2, <span class="dt">col =</span> col2, <span class="dt">lwd =</span> <span class="dv">2</span>)
+
+<span class="co"># Incluindo os valores das observações</span>
+<span class="kw">rug</span>(tmed1, <span class="dt">col =</span> <span class="kw">rgb</span>(<span class="fl">0.4</span>, <span class="fl">0.4</span>, <span class="dv">1</span>, <span class="fl">0.1</span>))
+<span class="kw">rug</span>(tmed2, <span class="dt">col =</span> <span class="kw">rgb</span>(<span class="dv">1</span>, <span class="fl">0.4</span>, <span class="fl">0.4</span>, <span class="fl">0.1</span>))
+
+<span class="co"># Incluindo a legenda</span>
+<span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,
+       <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&quot;Ano de 1991&quot;</span>, <span class="st">&quot;Ano de 2000&quot;</span>),
+       <span class="dt">fill =</span> <span class="kw">c</span>(col1, col2),
+       <span class="dt">bty =</span> <span class="st">&quot;n&quot;</span>,
+       <span class="dt">border =</span> <span class="st">&quot;white&quot;</span>
+       )</code></pre></div>
+<p><img src="rcourse02_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+</div>
+<div id="analise-bi-ou-multivariada" class="section level2">
+<h2>Análise bi ou multivariada</h2>
+<p>Chama-se aqui de análi gráfica bi ou multivariada aquela em que são exibidos mais de uma variável em um único gráfico, seja ela quantitativa ou qualitativa. Como exemplo temos interesse em verificar o comportamento da proporção de médicos residentes em cada estado.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Médicos residentes em cada estado no ano de 1991 e 2000</span>
+<span class="kw">plot</span>(med1 ~<span class="st"> </span>estado, <span class="dt">data =</span> dados)
+<span class="kw">plot</span>(med2 ~<span class="st"> </span>estado, <span class="dt">data =</span> dados)
+
+<span class="co"># Relação dos médicos residentes entre os anos avaliados</span>
+<span class="kw">plot</span>(med2 ~<span class="st"> </span>med1, <span class="dt">data =</span> dados)
+<span class="kw">abline</span>(<span class="dt">a =</span> <span class="dv">0</span>, <span class="dt">b =</span> <span class="dv">1</span>)</code></pre></div>
+</div>
+<div id="informacoes-da-sessao" class="section level2">
+<h2>Informações da sessão</h2>
+<pre><code>## R version 3.3.1 (2016-06-21)
+## Platform: x86_64-pc-linux-gnu (64-bit)
+## Running under: Ubuntu precise (12.04.5 LTS)
+## 
+## locale:
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+## 
+## attached base packages:
+## [1] grid      stats     graphics  grDevices utils     datasets  base     
+## 
+## other attached packages:
+## [1] gridExtra_2.2.1 ggplot2_2.1.0   knitr_1.14     
+## 
+## loaded via a namespace (and not attached):
+##  [1] Rcpp_0.12.7      revealjs_0.7     digest_0.6.10    plyr_1.8.4      
+##  [5] gtable_0.2.0     formatR_1.4      magrittr_1.5     evaluate_0.9    
+##  [9] scales_0.4.0     highr_0.6        stringi_1.1.2    rmarkdown_1.0   
+## [13] labeling_0.3     tools_3.3.1      stringr_1.1.0    munsell_0.4.3   
+## [17] yaml_2.1.13      colorspace_1.2-6 htmltools_0.3.5  methods_3.3.1</code></pre>
+<div id="update-message">
+Atualizado em 04 de October de 2016.
+</div>
+<!--------------------------------------------- -->
+</div>
+</div>
+
+<br>
+<hr>
+<center>© Copyright 2016 Ribeiro Jr., E. E.</center>
+<br>
+
+<div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = 'stats-cwr';
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
