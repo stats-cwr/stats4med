@@ -73,6 +73,10 @@ conteudos[5] <- "-------------------------------------------"
 ##-------------------------------------------
 ## DIA 04/10
 conteudos[6] <- "Visualização de dados - o emprego dos gráficos"
+materiais[6] <- c("[rcourse02](./rcourse02.html)")
+objetivos[6] <- paste0("Compreender a construção de gráficos em R,",
+                       "Exibir graficamente variáveis quantitativas ",
+                       "e qualitativas de forma uni e bi/multivariada")
 
 ##-------------------------------------------
 ## DIA 11/10
