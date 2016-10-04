@@ -5,6 +5,7 @@ git config --global user.name "Travis boot"
 
 git clone -b gh-pages https://${GIT_KEY}@github.com/${TRAVIS_REPO_SLUG}.git dir-tmp
 cd dir-tmp
+cp -r ../course/*.R ./
 cp -r ../course/_site/* ./
 cp -r ../seminars/*.pdf ./seminars/
 git add --all *
