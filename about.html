@@ -19,6 +19,7 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
 
@@ -79,6 +80,7 @@ button.code-folding-btn:focus {
 }
 </style>
 
+
 <style type="text/css">
 /* padding for bootstrap navbar */
 body {
@@ -135,7 +137,6 @@ $(document).ready(function () {
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
-<script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
@@ -219,7 +220,7 @@ $(document).ready(function () {
 <h1>O curso</h1>
 <p>O curso de Estatística com R para os alunos da Faculdade de Medicina da UFMG foi idealizado com o intuito de promover e capacitar os participantes na utilização do R para análise Estatística de suas pesquisas. Espera-se que, com a realização deste curso, os estudantes possam analisar adequadamente seus dados utilizando o R para análise, apresentação gráfica e elaboração de relatórios.</p>
 <div id="update-message">
-Atualizado em 04 de October de 2016.
+Atualizado em 13 de December de 2016.
 </div>
 </div>
 
@@ -246,9 +247,13 @@ Atualizado em 04 de October de 2016.
 <script>
 
 // add bootstrap table styles to pandoc tables
-$(document).ready(function () {
+function bootstrapStylePandocTables() {
   $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
 });
+
 
 </script>
 

@@ -19,6 +19,7 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
 
@@ -79,6 +80,7 @@ button.code-folding-btn:focus {
 }
 </style>
 
+
 <style type="text/css">
 /* padding for bootstrap navbar */
 body {
@@ -135,7 +137,6 @@ $(document).ready(function () {
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
-<script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
@@ -215,7 +216,7 @@ $(document).ready(function () {
 <p>Esta página web foi criada para armazenamento e disponibilização dos materiais elaborados para o curso de Estatística com R, ministrado para os alunos de graduação e pós-graduação em Medicina na Faculdade de Medicina da UFMG. Os materiais do curso são elaborados, essencialmente, como o pacote <a href="http://rmarkdown.rstudio.com/">rmarkdown</a> do R, cujo arquivos-fonte estão disponíveis em nosso <a href="https://github.com/stats-cwr/stats4med">repositório GitHub</a>. As aulas podem ser acessadas pela barra de navegação ou ainda pela página <a href="rcourse.html">Curso R</a>.</p>
 <p>Além de todo o material do curso também disponibilizamos aqui, os slides de eventuais seminários realizados para o grupo da Faculdade de Medicina. Esses materiais são listados no campo <code>Seminars</code>, da barra de navegação.</p>
 <div id="update-message">
-Atualizado em 04 de October de 2016.
+Atualizado em 13 de December de 2016.
 </div>
 
 <br>
@@ -241,9 +242,13 @@ Atualizado em 04 de October de 2016.
 <script>
 
 // add bootstrap table styles to pandoc tables
-$(document).ready(function () {
+function bootstrapStylePandocTables() {
   $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
 });
+
 
 </script>
 
