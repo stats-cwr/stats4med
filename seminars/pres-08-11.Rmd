@@ -1,0 +1,160 @@
+---
+title: Echocardiographic diagnosis of rheumatic disease
+subtitle: Proposal of the statistical methodology
+author: >
+    Eduardo Elias Ribeiro Junior \and
+    Henrique Aparecido Laureano \newline \and
+    Maria do Carmo Pereira Nunes
+shortauthor: Ribeiro Jr, E. E. R., Laureano, H. A., Nunes, M. C. P
+institute: >
+    Faculdade de Medicina \newline
+    Universide Federal de Minas Gerais - UFMG
+date: 13 de setembro de 2016
+fontsize: 10pt
+header-includes:
+  - \usepackage{multicol}
+  - \usepackage{booktabs}
+output:
+  beamer_presentation:
+    colortheme: dove
+    fonttheme: serif
+    highlight: tango
+    template: _template-beamer.tex
+    theme: Madrid
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+
+## Compile this file with encoding = "UTF-8"
+
+library(knitr)
+opts_chunk$set(cache = FALSE,
+               warning = FALSE,
+               message = FALSE)
+
+```
+
+# Introduction and goals #
+
+##  ##
+
+\begin{block}{Problem}
+ \begin{itemize}
+  \item Today we don't have a well-defined score for predicting the progression
+        of rheumatic disease
+  \pause
+  \item Based on empirical characteristics,
+        patients are classified into three categories:
+  \begin{multicols}{3}
+  \begin{itemize}
+   \item Definitive
+   \item Borderline
+   \item Normal
+   \end{itemize}
+  \end{multicols}
+ \end{itemize}
+\end{block}
+
+\pause
+\begin{block}{Goal}
+ Reduce the number of patients classified as borderline
+\end{block}
+
+## Classifiers ##
+
+\begin{block}{2012 World Heart Federation criteria}
+
+\begin{columns}[c]
+\column{.48\textwidth}
+  Advantages:
+    \begin{itemize}
+      \item Simple;
+      \item Standard echocardiographic diagnosis.
+    \end{itemize}
+  \hfill
+
+\column{.48\textwidth}
+  Disadvantages:
+    \begin{itemize}
+      \item Subjective criteria;
+      \item In practice, unused some indications.
+    \end{itemize}
+  \hfill
+\end{columns}
+
+\end{block}
+
+\begin{block}{Data-based classifiers}
+\begin{columns}[c]
+\column{.48\textwidth}
+  Advantages:
+    \begin{itemize}
+      \item Not subject to define the variables;
+      \item Informe the variables importance;
+      \item Classify based in "scores".
+    \end{itemize}
+
+\column{.48\textwidth}
+  Disadvantages:
+    \begin{itemize}
+      \item Difficulty in understanding by non-statisticians;
+      \item Equalized database.
+    \end{itemize}
+  \vspace{0.3cm}
+\end{columns}
+\end{block}
+
+# Classification Models #
+
+## Outcomes ##
+
+The response variable in database should be defined as:
+
+ - The extremes classification (Normal and Defined) using 2012 World
+   Heart Federation criteria; and/or
+
+ - The patient status about progression of the rheumatic heart disease,
+   but long time follow up is necessary to observe the progression.
+
+## Classifiers ##
+
+Simple and easy interpretation:
+
+ - Logistic Regression
+ - Discriminant Analysis Based (Linear, Quadratic, etc.)
+ - K-Nearest Neighbor (KNN)
+ - Decisions Trees
+
+More complex and hard or not interpretation, but effective:
+
+ - Bagging Decision Trees
+ - Random Forests
+ - Support Vector Machines
+
+# Evaluate and compare the classifiers #
+
+## Data test ##
+
+Classifiers:
+
+ - 2012 World Heart Federation criteria
+ - Modified 2012 World Heart Federation criteria
+ - Data-based classifiers
+
+Steps:
+
+1. Fit the classifiers using database ???, with 2012 World Heart
+   Federation criteria (Normal and Definitive classification).
+
+2. Using the fit classifiers, classify individuals in the diseased
+   database.
+
+## Compare measures ##
+
+ - Predict error (number of incorrect prediction)
+
+ - ROC Curve (Receiver Operating Characteristic)
+     - Confusion matrix (sensitivity and specificity)
+
+ - AUC Area under curve
